@@ -48,6 +48,6 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask('dist', ['svgmin', '']);
+	grunt.registerTask('dist', ['svgmin']);
 	grunt.registerTask('default', ['clean', 'dist']);
 };
