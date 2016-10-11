@@ -45,9 +45,27 @@ module.exports = function(grunt) {
 					dest: DIST_OPTIMIZED
 				}]
 			}
+		},
+
+		//
+		// SVG sprite
+		// builds distribution for chapstick
+		//
+		'svgstore': {
+			options: {
+				prefix: 'icon-'
+			},
+			default: {
+				files: [{
+					src: ['src/*.svg'],
+					dest: DIST_SPRITE + 'sprite.inc'
+				}]
+			}
 		}
 	});
 
-	grunt.registerTask('dist', ['svgmin']);
+
+	grunt.registerTask('optimize', ['svgmin']);
+	grunt.registerTask('dist', ['optimize', 'svgstore']);
 	grunt.registerTask('default', ['clean', 'dist']);
 };
