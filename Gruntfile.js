@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
 
+	grunt.loadNpmTasks('grunt-preprocess');
 	grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
@@ -9,7 +10,9 @@ module.exports = function(grunt) {
 		DIST_OPTIMIZED = DIST + 'optimized/',
 		DIST_ANDROID = DIST + 'android/',
 		DIST_IOS = DIST + 'iOS/',
-		DIST_SPRITE = DIST + 'sprite/';
+		DIST_SPRITE = DIST + 'sprite/',
+		DOC_SRC = 'doc/template/',
+		DOC_DEST = 'doc/build/';
 
 
 	grunt.initConfig({
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			css: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE]
+			css: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
 		},
 
 		//
@@ -61,7 +64,26 @@ module.exports = function(grunt) {
 					dest: DIST_SPRITE + 'sprite.inc'
 				}]
 			}
+		},
+
+		//
+		// DOCS via preprocess
+		// writes an html file to DOC_DEST
+		//
+		'preprocess': {
+			options: {
+				context: {
+					DEBUG: false,
+					'VERSION': '<%= package.version %>'
+				},
+				srcDir: DIST_SPRITE // resovle @include directive to built sprite
+			},
+			docs: {
+				src: DOC_SRC + 'template/index.html',
+				dest: DOC_DEST + 'index.html'
+			}
 		}
+
 	});
 
 
