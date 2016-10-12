@@ -8,29 +8,29 @@
 <g id="_x31_6px-grid" display="none">
 </g>
 <g id="_x32_4px">
-	<g>
-		<circle cx="15" cy="15" r="2"/>
-		<path d="M20,4L20,4h-1c-0.552,0-1-0.447-1-1c0-1.104-0.896-2-2-2c-1.105,0-2,0.896-2,2c0,0.553-0.448,1-1,1h-2
-			c-0.552,0-1-0.447-1-1c0-1.104-0.896-2-2-2C6.895,1,6,1.896,6,3c0,0.553-0.448,1-1,1H4l0,0h0C2.895,4,2,4.896,2,6v12
-			c0,2.208,1.932,4,4.142,4H18c2.208,0,4-1.792,4-4V6C22,4.896,21.104,4,20,4z M18,17c0,0.55-0.45,1-1,1h-2.858H10H7.142
-			C6.592,18,6,17.55,6,17v-6c0-0.553,0.589-1,1.142-1H17c0.553,0,1,0.447,1,1V17z"/>
-	</g>
+	<path d="M12,2C6.477,2,2,6.478,2,12s4.477,10,10,10s10-4.478,10-10S17.523,2,12,2z M17.657,9.171l-7.071,7.071
+		c-0.391,0.391-1.023,0.391-1.414,0l-2.828-2.828c-0.391-0.391-0.391-1.023,0-1.414c0.391-0.392,1.023-0.391,1.414,0l2.121,2.121
+		l6.364-6.364c0.391-0.391,1.023-0.391,1.414,0S18.047,8.78,17.657,9.171z"/>
 </g>
 <g id="_x32_4px-grid" display="none">
 	<path display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" d="M22,12
 		c0,5.522-4.473,10-10,10S2,17.522,2,12S6.473,2,12,2S22,6.478,22,12z"/>
 	<circle display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" cx="12" cy="12" r="5"/>
-	<line display="inline" fill="none" stroke="#FF33FF" stroke-miterlimit="10" x1="4.062" y1="22.5" x2="4.062" y2="22.5"/>
+	<line display="inline" fill="none" stroke="#FF33FF" stroke-miterlimit="10" x1="4.562" y1="22.75" x2="4.562" y2="22.75"/>
 	<line display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" x1="24" y1="24" x2="0" y2="0"/>
 	<line display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" x1="0" y1="24" x2="24" y2="0"/>
 </g>
-<g id="_x33_2px">
+<g id="_x33_6px">
 </g>
-<g id="_x33_2px-grid" display="none">
+<g id="_x33_6px-grid" display="none">
 </g>
 <g id="_x34_8px">
 </g>
 <g id="_x34_8px-grid" display="none">
+</g>
+<g id="_x37_2px">
+</g>
+<g id="_x37_2px-grid" display="none">
 </g>
 <g id="_x31_60px">
 </g>
