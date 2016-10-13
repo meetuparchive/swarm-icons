@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>swarm-icons</title>
+
+	<link rel="stylesheet" type="text/css" href="<!-- @echo STYLESHEET_FONT -->" />
+	<link rel="stylesheet" type="text/css" href="<!-- @echo STYLESHEET_SQ -->" />
+
+	<style type="text/css">
+		.svg svg {
+			stroke: transparent;
+			fill: #ED1C40;
+		}
+		.gridList-item {
+			margin-bottom: 32px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="iconSprite" class="display--none">
+		<!-- @include sprite.inc -->
+	</div>
+
+	<section class="stripe stripe--collection">
+		<div class="bounds bounds--sideHeader">
+			<div class="chunk padding--top bounds-header">
+				<h1 class="text--display1">Swarm Icons</h1>
+				<p class="chunk text--caption">version <!-- @echo VERSION --></p>
+				<p><a class="link" href="https://github.com/meetup/swarm-icons">&larr; github</a></p>
+			</div>
+			<ul id="spriteList" class="padding--top gridList gridList--has3 atMedium_gridList--has4 atLarge_gridList--has5"></ul>
+		</div>
+	</section>
+
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var template = [
+				'<li class="gridList-item align--center">',
+					'<div>',
+						'<span class="svg svg--__NAME__">',
+							'<svg preserveAspectRatio="xMinYMin meet" width="__SIZE__" height="__SIZE__" viewBox="0 0 __SIZE__ __SIZE__" class="svg-icon">',
+								'<use xlink:href="#icon-__NAME__"></use>',
+							'</svg>',
+						'</span>',
+					'</div>',
+					'<p class="text--small" style="margin-top: 4px;">__NAME__</p>',
+				'</li>',
+			].join('');
+
+		function createIconList( $targetEl, $symbols, size ) {
+			$symbols.each(function(i, symbol) {
+				$targetEl.append(
+					template
+						.replace( /__SIZE__/g, size || 36 )
+						.replace( /__NAME__/g, $(symbol).attr('id').split('icon-')[1] )
+				);
+			});
+		}
+
+		$(function() {
+			createIconList( $('#spriteList'), $('#iconSprite svg symbol'));
+		});
+	</script>
+
+</body>
+</html>

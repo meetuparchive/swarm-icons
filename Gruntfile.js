@@ -73,13 +73,14 @@ module.exports = function(grunt) {
 		'preprocess': {
 			options: {
 				context: {
-					DEBUG: false,
-					'VERSION': '<%= package.version %>'
+					'VERSION': '<%= package.version %>',
+					'STYLESHEET_SQ': 'http://meetup.github.io/sassquatch2/bundle/sassquatch.css',
+					'STYLESHEET_FONT': 'http://static2.meetupstatic.com/fonts/graphik.css'
 				},
 				srcDir: DIST_SPRITE // resovle @include directive to built sprite
 			},
 			docs: {
-				src: DOC_SRC + 'template/index.html',
+				src: DOC_SRC + 'index.html',
 				dest: DOC_DEST + 'index.html'
 			}
 		}
@@ -89,5 +90,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('optimize', ['svgmin']);
 	grunt.registerTask('dist', ['optimize', 'svgstore']);
-	grunt.registerTask('default', ['clean', 'dist']);
+	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
 };
