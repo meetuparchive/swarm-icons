@@ -1,4 +1,6 @@
 *.swp
 
+.grunt
+
 node_modules/
 doc/build/*
