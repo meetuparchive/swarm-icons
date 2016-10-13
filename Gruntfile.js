@@ -74,8 +74,8 @@ module.exports = function(grunt) {
 			options: {
 				context: {
 					'VERSION': '<%= package.version %>',
-					'STYLESHEET_SQ': 'http://meetup.github.io/sassquatch2/bundle/sassquatch.css',
-					'STYLESHEET_FONT': 'http://static2.meetupstatic.com/fonts/graphik.css'
+					'STYLESHEET_SQ': 'https://meetup.github.io/sassquatch2/bundle/sassquatch.css',
+					'STYLESHEET_FONT': 'https://secure.meetupstatic.com/fonts/graphik.css'
 				},
 				srcDir: DIST_SPRITE // resovle @include directive to built sprite
 			},
@@ -83,6 +83,18 @@ module.exports = function(grunt) {
 				src: DOC_SRC + 'index.html',
 				dest: DOC_DEST + 'index.html'
 			}
+		},
+
+		//
+		// LIVE DOCS
+		// gh-pages task to move built doc html
+		// to root dir of gh-pages branch
+		//
+		'gh-pages': {
+			options: {
+				base: DOC_DEST
+			},
+			src: ['**']
 		}
 
 	});
@@ -90,5 +102,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('optimize', ['svgmin']);
 	grunt.registerTask('dist', ['optimize', 'svgstore']);
+
 	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
+	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };
