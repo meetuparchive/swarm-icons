@@ -2,8 +2,15 @@
   "name": "@meetup/swarm-icons",
   "version": "0.0.1",
   "description": "Icons for Swarm Design System",
-  "main": "index.js",
-  "dependencies": {
+  "directories": {
+	  "doc": "docs/build",
+	  "dist": "dist"
+  },
+  "repository": {
+	  "type": "git",
+	  "url": "git://github.com/meetup/swarm-icons.git"
+  }
+  "devDependencies": {
 		"grunt": "2.0.1",
 		"grunt": "~0.4.5",
 		"grunt-cli": "",
@@ -13,6 +20,6 @@
 		"grunt-gh-pages": "0.10.0",
 		"grunt-contrib-clean": "0.6.0"
   },
-  "author": "",
+  "author": "adamd@meetup.com, mikep@meetup.com",
   "license": "MIT"
 }
