@@ -31,13 +31,27 @@
 				<p class="chunk text--caption">version <!-- @echo VERSION --></p>
 				<p><a class="link" href="https://github.com/meetup/swarm-icons">&larr; github</a></p>
 			</div>
-			<ul id="spriteList" class="padding--top gridList gridList--has3 atMedium_gridList--has4 atLarge_gridList--has5"></ul>
+
+			<div class="padding--left">
+				<div class="chunk border--top margin--top">
+					<h2 class="text--big text--secondary padding--top">Meetup icons</h2>
+					<ul id="iconListMeetup" class="padding--top gridList gridList--has3 atMedium_gridList--has4 atLarge_gridList--has5"></ul>
+				</div>
+
+				<div class="chunk border--top margin--top">
+					<h2 class="text--big text--secondary padding--top">Third party icons</h2>
+					<ul id="iconListExternal" class="padding--top gridList gridList--has3 atMedium_gridList--has4 atLarge_gridList--has5"></ul>
+				</div>
+			</div>
 		</div>
 	</section>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		var template = [
+		var EXTERNAL_FLAG = 'external',
+			$MEETUP_LIST,
+			$EXTERNAL_LIST,
+			template = [
 				'<li class="gridList-item align--center">',
 					'<div>',
 						'<span class="svg svg--__NAME__">',
@@ -50,18 +64,30 @@
 				'</li>',
 			].join('');
 
-		function createIconList( $targetEl, $symbols, size ) {
+		function renderIcon( $targetEl, $symbol ) {
+			$targetEl.append(
+				template
+					.replace( /__SIZE__/g, 36 )
+					.replace( /__NAME__/g, $symbol.attr('id').split('icon-')[1] )
+			);
+		}
+
+		function createIconList( $symbols ) {
 			$symbols.each(function(i, symbol) {
-				$targetEl.append(
-					template
-						.replace( /__SIZE__/g, size || 36 )
-						.replace( /__NAME__/g, $(symbol).attr('id').split('icon-')[1] )
-				);
+				var $symbol = $(symbol);
+				console.log($symbol.attr('id'));
+				if ( $symbol.attr('id').indexOf(EXTERNAL_FLAG) > -1 ) {
+					renderIcon($EXTERNAL_LIST, $symbol);
+				} else {
+					renderIcon($MEETUP_LIST, $symbol);
+				}
 			});
 		}
 
 		$(function() {
-			createIconList( $('#spriteList'), $('#iconSprite svg symbol'));
+			$MEETUP_LIST = $('#iconListMeetup');
+			$EXTERNAL_LIST = $('#iconListExternal');
+			createIconList($('#iconSprite svg symbol'));
 		});
 	</script>
 
