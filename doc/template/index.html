@@ -75,7 +75,6 @@
 		function createIconList( $symbols ) {
 			$symbols.each(function(i, symbol) {
 				var $symbol = $(symbol);
-				console.log($symbol.attr('id'));
 				if ( $symbol.attr('id').indexOf(EXTERNAL_FLAG) > -1 ) {
 					renderIcon($EXTERNAL_LIST, $symbol);
 				} else {
