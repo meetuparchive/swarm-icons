@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			css: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
+			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
 		},
 
 		//
