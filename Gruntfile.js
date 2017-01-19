@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['src/*.svg'],
+					src: ['src/svg/*.svg'],
 					dest: DIST_SPRITE + 'sprite.inc'
 				}]
 			}
