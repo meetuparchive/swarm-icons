@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/',
+					cwd: 'src/svg',
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
