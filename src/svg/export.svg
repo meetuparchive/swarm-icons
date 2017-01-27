@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
 <g id="_x31_6px">
 </g>
 <g id="_x31_6px-grid">
 </g>
 <g id="_x32_4px">
-	<path d="M22,11c-0.044-0.097-2.585-4.236-2.585-4.236c-0.683-0.868-1.942-1.02-2.812-0.335C15.734,7.111,15.582,8.133,16.266,9
-		L17,10H7c-0.552,0-1-0.447-1-1V7c0-0.553,0.448-1,1-1h3c1.104,0,2-0.896,2-2s-0.896-2-2-2H4.236C3.006,2,2,3.006,2,4.236v15.528
-		C2,20.994,3.006,22,4.236,22H10c1.104,0,2-0.896,2-2s-0.896-2-2-2H7c-0.552,0-1-0.447-1-1v-2c0-0.553,0.448-1,1-1h10l-0.734,1
-		c-0.684,0.867-0.531,1.889,0.336,2.57c0.871,0.686,2.131,0.533,2.812-0.334L22,13C22.484,12.385,22.342,11.586,22,11z"/>
+	<path d="M6.585,7.554C5.9,6.684,6.052,5.424,6.92,4.741c0,0,4.14-2.541,4.236-2.585c0.586-0.342,1.375-0.484,1.99,0l4.227,2.585
+		c0.868,0.683,1,1.942,0.315,2.812c-0.683,0.868-1.743,1.021-2.61,0.337L14,7.156V13v1c0,1.104-0.896,2-2,2s-2-0.896-2-2v-1V7.156
+		L9.078,7.891C8.211,8.574,7.268,8.422,6.585,7.554z M20,12.156c-1.104,0-2,0.896-2,2V17c0,0.553-0.447,1-1,1H7
+		c-0.553,0-1-0.447-1-1v-2.844c0-1.104-0.896-2-2-2s-2,0.896-2,2v5.764C2,21.15,3.162,22,4.393,22H19.92c1.23,0,2.08-0.85,2.08-2.08
+		v-5.764C22,13.052,21.104,12.156,20,12.156z"/>
+</g>
+<g id="_x32_4px-grid" display="none">
+	<path display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" d="M22,12
+		c0,5.522-4.473,10-10,10S2,17.522,2,12S6.473,2,12,2S22,6.478,22,12z"/>
+	<circle display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" cx="12" cy="12" r="5"/>
+	<line display="inline" fill="none" stroke="#FF33FF" stroke-miterlimit="10" x1="4.562" y1="22.75" x2="4.562" y2="22.75"/>
+	<line display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" x1="24" y1="24" x2="0" y2="0"/>
+	<line display="inline" fill="none" stroke="#FF33FF" stroke-width="0.075" stroke-miterlimit="10" x1="0" y1="24" x2="24" y2="0"/>
 </g>
 <g id="_x33_6px">
 </g>
