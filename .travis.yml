@@ -1,0 +1,12 @@
+sudo: required
+language: node_js
+node_js:
+  - "7.7.1"
+branches:  # pushes only get built for master
+  only:
+    - master
+before_install:
+   - yarn install
+scripts:
+   - grunt
+   - grunt ghpages
