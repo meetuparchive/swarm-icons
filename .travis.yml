@@ -5,8 +5,6 @@ node_js:
 branches:  # pushes only get built for master
   only:
     - master
-before_install:
-   - yarn install
 scripts:
    - grunt
    - grunt ghpages
