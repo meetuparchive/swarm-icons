@@ -10,7 +10,7 @@
 	<style type="text/css">
 		.svg svg {
 			stroke: transparent;
-			fill: #7000B0;
+			fill: rgba(0,0,0,.54);
 		}
 		.gridList-item {
 			margin-bottom: 32px;
@@ -34,7 +34,15 @@
 
 			<div class="padding--left">
 				<div class="chunk border--top margin--top">
-					<h2 class="text--big text--secondary padding--top">Meetup icons</h2>
+					<div class="chunk">
+						<div class="row">
+							<div class="row-item"><h2 class="text--big text--secondary padding--top">Meetup icons</h2></div>
+							<div class="row-item row-item--shrink row valign--middle">
+								<input type='checkbox' name='toggleSmall' id='toggleSmall' class='row-item row-item--shrink' />
+								<label for='toggleSmall' class='row-item valign--middle'>Toggle small</label>
+							</div>
+						</div>
+					</div>
 					<ul id="iconListMeetup" class="padding--top gridList gridList--has3 atMedium_gridList--has4 atLarge_gridList--has5"></ul>
 				</div>
 
@@ -52,7 +60,7 @@
 			$MEETUP_LIST,
 			$EXTERNAL_LIST,
 			template = [
-				'<li class="gridList-item align--center">',
+				'<li class="gridList-item align--center iconIsSmall--__isSMALL__">',
 					'<div>',
 						'<span class="svg svg--__NAME__">',
 							'<svg preserveAspectRatio="xMinYMin meet" width="__SIZE__" height="__SIZE__" viewBox="0 0 __SIZE__ __SIZE__" class="svg-icon">',
@@ -65,14 +73,22 @@
 			].join('');
 
 		function renderIcon( $targetEl, $symbol ) {
+			var string = $symbol.attr('id'),
+					expr = /small/;
+
+			var isSmall = expr.test(string),
+					renderSize = isSmall ? 18 : 42;
+
 			$targetEl.append(
 				template
-					.replace( /__SIZE__/g, 36 )
+					.replace( /__isSMALL__/g, isSmall )
+					.replace( /__SIZE__/g, renderSize )
 					.replace( /__NAME__/g, $symbol.attr('id').split('icon-')[1] )
 			);
 		}
 
 		function createIconList( $symbols ) {
+			console.log($TOGGLE_SMALL[0].checked);
 			$symbols.each(function(i, symbol) {
 				var $symbol = $(symbol);
 				if ( $symbol.attr('id').indexOf(EXTERNAL_FLAG) > -1 ) {
@@ -83,10 +99,22 @@
 			});
 		}
 
+		function toggleSmallIcons() {
+			$TOGGLE_SMALL.on('change', function(){
+				var toggleSmall = $(this)[0].checked;
+				$('.iconIsSmall--true').toggleClass('display--none');
+				$MEETUP_LIST.find('.iconIsSmall--false').toggleClass('display--none');
+				console.log(toggleSmall);
+			});
+		}
+
 		$(function() {
 			$MEETUP_LIST = $('#iconListMeetup');
 			$EXTERNAL_LIST = $('#iconListExternal');
+			$TOGGLE_SMALL = $('#toggleSmall');
 			createIconList($('#iconSprite svg symbol'));
+			$('.iconIsSmall--true').addClass('display--none');
+			toggleSmallIcons();
 		});
 	</script>
 
