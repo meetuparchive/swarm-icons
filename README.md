@@ -83,7 +83,7 @@ Some icon shapes have been deleted. A checklist of usage in consumer apps can be
 - Added new icon shapes
 - Updated existing shapes
 - Created `--small` shape variants for drawing icons at `xs` size
-	- third party icons prefix with `external-` do not have `--small` variants
+	- third party icons prefixed with `external-` do not have `--small` variants
 - Deleted a number icons.
 	- `messages-new`
 	- `messages-notif`
