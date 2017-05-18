@@ -81,8 +81,6 @@ task         | description
 Some icon shapes have been deleted. A checklist of usage in consumer apps can be found [here](https://docs.google.com/a/meetup.com/spreadsheets/d/1wgm7-aooN_FJkSnnzS6JbempVaazqX3suBtQv9Q0tNY/edit?usp=sharing)
 
 - Added new icon shapes
-- Added SCSS partial for base icon styles
-	- New base icon styles explicitly set icons to `secondary` text color instead of `inherit`
 - Updated existing shapes
 - Created `--small` shape variants for drawing icons at `xs` size
 	- third party icons prefixed with `external-` do not have `--small` variants
