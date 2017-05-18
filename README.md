@@ -72,3 +72,22 @@ task         | description
 #### TODO:
 - Travis integration
 - auto-export SVG files to `src/svg` from assets committed to `src/sketch`
+
+---------
+
+# Release notes
+
+## v2.0.0
+Some icon shapes have been deleted. A checklist of usage in consumer apps can be found [here](https://docs.google.com/a/meetup.com/spreadsheets/d/1wgm7-aooN_FJkSnnzS6JbempVaazqX3suBtQv9Q0tNY/edit?usp=sharing)
+
+- Added new icon shapes
+- Updated existing shapes
+- Created `--small` shape variants for drawing icons at `xs` size
+	- third party icons prefixed with `external-` do not have `--small` variants
+- Deleted a number icons.
+	- `messages-new`
+	- `messages-notif`
+	- `messages`
+	- `pause`
+	- `start-new`
+	- `updates`
