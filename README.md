@@ -90,4 +90,3 @@ Some icon shapes have been deleted. A checklist of usage in consumer apps can be
 	- `messages`
 	- `pause`
 	- `start-new`
-	- `updates`
