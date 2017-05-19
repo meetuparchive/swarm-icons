@@ -6,6 +6,9 @@
 	  "doc": "docs/build",
 	  "dist": "dist"
   },
+  "scripts": {
+	  "build": "grunt"
+	},
   "repository": {
 	  "type": "git",
 	  "url": "git://github.com/meetup/swarm-icons.git"
