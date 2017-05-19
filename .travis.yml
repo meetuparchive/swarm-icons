@@ -1,10 +1,46 @@
-sudo: required
+sudo: false
 language: node_js
 node_js:
-  - "7.7.1"
-branches:  # pushes only get built for master
+  - "7.8"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+branches:
   only:
-    - master
-scripts:
-   - grunt
-   - grunt ghpages
+    - master  # (PRs to master, master merges, master pushes)
+
+env:
+  global:
+    - CI_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
+    - secure: "ecCZjZS3JdeEhJoOKej9GsBV69umhJ1w33OQGQqqgEZfz18yipas9rsFwHyL9grQt4/y8gG05Gp+s5vFzuY5/QpD4JMWnHbmPhOZyXB1YzpPxqvjAPpm+MRCdKnkuVRUZufBz1S6VvrCqtcT7sClXiJpOmf9kuIcfsJASfM1fozGFlobLC4gVYHHJKYAloqxKmU5uxyEdaJbtgAxDmS7Y8XSaRS94Qa1H94nEVc3zvEQbEi7Lf3q0smKlOr0hBM4Q1/05Cq2wP7ew+2JsGgAd8La8ynLEJ7N9XCuRXcCJkSRVipb4h/e6nnQ7dPoC2/kWtfeo53wX35vppxlvFpdLwmvwm1u5Rq+IVVkM7rYCm4mqX6CJUsKOFmLrHHva+JxgqPBvP7a0DJkkkbHCwLG2HT9U0EmTKjl4IxAwBiQHlL53dpIvkmfDD1VoPIiBbZYixhpFZchQpk/rbnjBj7HPV7gOV46ywAvg/3xKZ0AxzoaL6nZ0Qtzu0Z/Z197byOdrQ4S/Z073hlNpQVtqYBf5Yyw7hJSqoNrDqv67d9Pff9oZNFOuSo6vU2EQO7kRNpV4dXA9eyN51oofVvaQ09TOs3Sy2ni399C6+RDAlpwjEIFp5zF0E7PQmHKHj4u9dqcnOejh2KfG6ZHLiES30Qd6YZNdlSySHu4ABlxUY1ZqnA="
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in './travis/github_deploy_key.enc' -out github_deploy_key -d
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+
+before_script:
+  - git diff --exit-code
+
+after_script:
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  - $(npm bin)/set-up-ssh --key "$encrypted_c029000ceefd_key" --iv "$encrypted_c029000ceefd_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
+  - >
+    [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] &&
+    export GIT_TAG=$(make version) ||
+    export GIT_TAG=$(make version)-beta
+  - >
+    [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] &&
+    export NPM_TAG=latest ||
+    export NPM_TAG=beta
+  - echo "GIT_TAG=$GIT_TAG"
+  - echo "NPM_TAG=$NPM_TAG"
+  - >
+    [ "${TRAVIS_BRANCH}" != "master" ] &&
+    echo "skipping versioning" ||
+    yarn run build &&
+    npm version $GIT_TAG -m "Version $GIT_TAG built by Travis CI - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_JOB_ID" &&
+    git push --tags git@github.com:$TRAVIS_REPO_SLUG.git &&
+    npm publish --tag $NPM_TAG
