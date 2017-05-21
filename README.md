@@ -1,12 +1,12 @@
 swarm-icons
 ===========
+[![npm version](https://badge.fury.io/js/swarm-icons.svg)](https://badge.fury.io/js/swarm-icons)
+[![Build Status](https://travis-ci.org/meetup/swarm-icons.svg?branch=master)](https://travis-ci.org/meetup/swarm-icons)
+
 Icon library module of the [Swarm Design System](https://github.com/meetup/swarm-design-system)
 
 ## Documentation
 [https://meetup.github.io/swarm-icons/](https://meetup.github.io/swarm-icons/)
-
-[![npm version](https://badge.fury.io/js/swarm-icons.svg)](https://badge.fury.io/js/swarm-icons)
-[![Build Status](https://travis-ci.org/meetup/swarm-icons.svg?branch=master)](https://travis-ci.org/meetup/swarm-icons)
 
 ---------
 
