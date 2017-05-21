@@ -5,6 +5,7 @@ Icon library module of the [Swarm Design System](https://github.com/meetup/swarm
 ## Documentation
 [https://meetup.github.io/swarm-icons/](https://meetup.github.io/swarm-icons/)
 
+[![npm version](https://badge.fury.io/js/swarm-icons.svg)](https://badge.fury.io/js/swarm-icons)
 
 ---------
 
@@ -48,13 +49,21 @@ If the svg sprite is included at the top of every HTML document in your React pr
 Once the pull request is merged, we can manually run `grunt` and `grunt ghpages` in
 the `master` branch. This will generate distributions and documentation for our Icon library.
 
-*In an upcoming release, Travis will handle builds/versioning when a PR is merged*
-
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
 1. Use the sketch source file in `src/sketch/` to make edits.
 2. Commit your changes and submit a PR.
+3. The PR will publish a `-beta` tag to npm
 
+#### Releases
+This package uses semver versioning to tag releases, although the patch version
+is determined exclusively by the Travis build number for pushes to `master`.
+Major and minor versions are hard-coded into the [Makefile](Makefile#L2).
+
+Manual pushes to `master` and PR merges to master will be built by Travis, and
+will kick off the yarn publish routine. The currently-published version of the
+package is shown on the repo homepage on GitHub in a badge at the top of the
+README.
 
 ----------
 
