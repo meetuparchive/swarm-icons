@@ -36,6 +36,10 @@ For more information about svg sprites, see this article from [CSS Tricks](https
 If the svg sprite is included at the top of every HTML document in your React project, you can use the
 `Icon` component in [`meetup-web-components`](https://github.com/meetup/meetup-web-components) to render the icon.
 
+#### Mapped shapes
+Some icons shape names map to another symbol. For example, `chevron-up` actually renders `chevron-right` 
+with a CSS transform to rotate the icon. For a full list of mapped shape names, see `dist/js/shape-mappings.js`
+
 ----------
 
 ## Modifying the icon library
@@ -87,7 +91,11 @@ task         | description
 
 # Release notes
 
-## v2.0.0
+## v1.1.0
+- Removed `chevron-down`.
+- Added `shape-mappings.js` to help support reusing symbols with CSS transforms
+
+## v1.0.0
 Some icon shapes have been deleted. A checklist of usage in consumer apps can be found [here](https://docs.google.com/a/meetup.com/spreadsheets/d/1wgm7-aooN_FJkSnnzS6JbempVaazqX3suBtQv9Q0tNY/edit?usp=sharing)
 
 - Added new icon shapes
