@@ -1,28 +1,28 @@
 {
- "name": "swarm-icons",
- "version": "0.0.0",
- "description": "Icons for Swarm Design System",
- "directories": {
-  "doc": "docs/build",
-  "dist": "dist"
- },
- "scripts": {
-  "build": "grunt"
- },
- "repository": {
-  "type": "git",
-  "url": "git://github.com/meetup/swarm-icons.git"
- },
- "devDependencies": {
-  "@alrra/travis-scripts": "^3.0.1",
-  "grunt": "~0.4.5",
-  "grunt-cli": "",
-  "grunt-contrib-clean": "0.6.0",
-  "grunt-gh-pages": "0.10.0",
-  "grunt-preprocess": "5.1.0",
-  "grunt-svgmin": "4.0.0",
-  "grunt-svgstore": "1.0.0"
- },
- "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT"
+  "name": "swarm-icons",
+  "version": "1.1.33",
+  "description": "Icons for Swarm Design System",
+  "directories": {
+    "doc": "docs/build",
+    "dist": "dist"
+  },
+  "scripts": {
+    "build": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meetup/swarm-icons.git"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-preprocess": "5.1.0",
+    "grunt-svgmin": "4.0.0",
+    "grunt-svgstore": "1.0.0"
+  },
+  "author": "adamd@meetup.com, mikep@meetup.com",
+  "license": "MIT"
 }
