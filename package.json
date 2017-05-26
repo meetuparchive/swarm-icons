@@ -21,11 +21,9 @@
   "grunt-gh-pages": "0.10.0",
   "grunt-preprocess": "5.1.0",
   "grunt-svgmin": "4.0.0",
-  "grunt-svgstore": "1.0.0"
+  "grunt-svgstore": "1.0.0",
+  "grunt-contrib-copy": "^1.0.0"
  },
  "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT",
- "dependencies": {
-  "grunt-contrib-copy": "^1.0.0"
- }
+ "license": "MIT"
 }
