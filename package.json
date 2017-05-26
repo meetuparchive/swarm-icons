@@ -7,7 +7,7 @@
   "dist": "dist"
  },
  "scripts": {
-  "buld": "grunt"
+  "build": "grunt"
  },
  "repository": {
   "type": "git",
