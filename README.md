@@ -91,7 +91,11 @@ task         | description
 
 # Release notes
 
-## v2.0.0
+## v1.1.0
+- Removed `chevron-down`.
+- Added `shape-mappings.js` to help support reusing symbols with CSS transforms
+
+## v1.0.0
 Some icon shapes have been deleted. A checklist of usage in consumer apps can be found [here](https://docs.google.com/a/meetup.com/spreadsheets/d/1wgm7-aooN_FJkSnnzS6JbempVaazqX3suBtQv9Q0tNY/edit?usp=sharing)
 
 - Added new icon shapes
