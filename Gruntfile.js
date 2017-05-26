@@ -5,7 +5,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	var DIST = 'dist/',
 		DIST_OPTIMIZED = DIST + 'optimized/',
@@ -25,22 +24,6 @@ module.exports = function(grunt) {
 		//
 		'clean': {
 			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
-		},
-
-		//
-		// COPY
-		// JS to `dist`
-		//
-		copy: {
-			js: {
-				files: [
-					{
-						expand: false,
-						src: ['src/js/shape-mappings.js'],
-						dest: DIST + 'js/shape-mappings.js'
-					}
-				]
-			}
 		},
 
 		//
@@ -118,7 +101,7 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('optimize', ['svgmin']);
-	grunt.registerTask('dist', ['copy', 'optimize', 'svgstore']);
+	grunt.registerTask('dist', ['optimize', 'svgstore']);
 
 	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
 	grunt.registerTask('ghpages', ['default', 'gh-pages']);
