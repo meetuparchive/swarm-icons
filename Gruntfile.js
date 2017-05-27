@@ -41,13 +41,18 @@ module.exports = function(grunt) {
 					{ collapseGroups: true },
 					{ removeEmptyAttrs: true },
 					{ removeUselessStrokeAndFill: true },
-					{ removeViewbox: false }
+					{ removeViewbox: false },
+					{
+						removeAttrs: {
+							attrs: ['fill']
+						}
+					}
 				]
 			},
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/svg',
+					cwd: 'dist/svg/raw',
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
@@ -64,7 +69,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['src/svg/*.svg'],
+					src: ['dist/svg/optimized/*.svg'],
 					dest: DIST_SPRITE + 'sprite.inc'
 				}]
 			}
