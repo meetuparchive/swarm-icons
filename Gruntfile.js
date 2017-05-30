@@ -125,7 +125,7 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('optimize', ['svgmin']);
-	grunt.registerTask('dist', ['optimize', 'svgstore']);
+	grunt.registerTask('dist', ['optimize', 'svgstore', 'exec:jsConstants']);
 
 	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
 	grunt.registerTask('ghpages', ['default', 'gh-pages']);
