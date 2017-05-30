@@ -16,7 +16,8 @@ const iconNames = fs.readdirSync(SRC_DIR)
 	.map(f => f.replace('.svg', ''));
 
 const renderFileContent = iconNames => `const VALID_SHAPES = [${iconNames.map(name => `"${name}"`)}];
-export default VALID_SHAPES;`;
+export default VALID_SHAPES;
+`;
 
 fs.writeFileSync(
 	`${DEST_DIR}shapeConstants.js`,
