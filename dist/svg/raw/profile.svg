@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>profile</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="profile" fill="#000000">
+            <path d="M14,2 C16.206,2 18,3.794 18,6 C18,8.206 16.206,10 14,10 C11.794,10 10,8.206 10,6 C10,3.794 11.794,2 14,2 L14,2 Z M14,12 C17.313,12 20,9.313 20,6 C20,2.687 17.313,0 14,0 C10.687,0 8,2.687 8,6 C8,9.313 10.687,12 14,12 L14,12 Z M22,24 C22,25.103 21.103,26 20,26 L8,26 C6.897,26 6,25.103 6,24 L6,22 C6,18.691 8.691,16 12,16 L16,16 C19.309,16 22,18.691 22,22 L22,24 Z M16,14 L12,14 C7.582,14 4,17.582 4,22 L4,24 C4,26.209 5.791,28 8,28 L20,28 C22.209,28 24,26.209 24,24 L24,22 C24,17.582 20.418,14 16,14 L16,14 Z" id="Page-1"></path>
+        </g>
+    </g>
+</svg>
