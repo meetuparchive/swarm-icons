@@ -51,15 +51,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		'generateConstants': {
-			dist: {
-				files: [{
-					src: ['src/svg/*.svg'],
-					dest: `${DIST}js/`
-				}]
-			}
-		},
-
 		//
 		// SVG sprite
 		// builds distribution for chapstick
