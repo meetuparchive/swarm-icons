@@ -8,10 +8,8 @@ module.exports = function(grunt) {
 
 	var DIST = 'dist/',
 		DIST_OPTIMIZED = DIST + 'svg/optimized/',
-		DIST_ANDROID = DIST + 'android/',
 		DIST_IOS = DIST + 'iOS/',
 		DIST_SPRITE = DIST + 'svg/sprite/',
-		DIST_ICONS_ANDROID = DIST + 'vectorDrawable',
 		DIST_ICONS_IOS = DIST + 'pdf',
 		DIST_ICONS_WEB = DIST + 'svg/raw',
 		DOC_SRC = 'doc/template/',
@@ -26,8 +24,8 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST],
-			icons: [DIST_ICONS_ANDROID, DIST_ICONS_IOS, DIST_ICONS_WEB]
+			all: [DIST_OPTIMIZED, DIST_IOS, DIST_SPRITE, DOC_DEST],
+			icons: [DIST_ICONS_IOS, DIST_ICONS_WEB]
 		},
 
 		//
@@ -110,9 +108,6 @@ module.exports = function(grunt) {
 			target: {
 				src: ['src/sketch/*.sketch']
 			},
-			options: {
-				platforms: ['ANDROID', 'IOS', 'WEB'],
-			},
 		}
 
 	});
@@ -128,7 +123,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('export_artboards', 'export artboards', function(artboardNames, src, platform) {
 		var done = this.async();
 		var platformOptions = {};
-		var isValidPlatform = true;
 		var platformName = platform.toUpperCase();
 		var destination;
 
@@ -137,13 +131,6 @@ module.exports = function(grunt) {
 				destination = DIST_ICONS_WEB
 				platformOptions = {
 					formats: 'svg',
-					scales: '1.0'
-				}
-				break;
-			case 'ANDROID':
-				destination = DIST_ICONS_ANDROID
-				platformOptions = { // REAL ANDROID OPTIONS TBD
-					formats: 'png',
 					scales: '1.0'
 				}
 				break;
@@ -175,17 +162,18 @@ module.exports = function(grunt) {
 		});
 	});
 
-	var getArtboards = function(artboardJSON, array, platformName) {
-		for (var i = 0; i < artboardJSON.length; i++) {
-			array.push(artboardJSON[i].name);
-		}
-		return array;
-	}
+	var getArtboards = function(artboardJSON, artboardNames) {
+		return artboardJSON.map(board => {
+			artboardNames.push(board.name);
+		});
+	};
 
 	grunt.registerMultiTask('export', 'list artboards', function(){
 		var done = this.async();
 		var options = this.options();
 		var platform = grunt.option('platform') ? grunt.option('platform').toUpperCase() : 'ALL';
+		var platformDistributions = ['IOS', 'WEB'];
+		var isValidPlatform = ['ALL', ...platformDistributions].includes(platform);
 
 		var exportFn = function(platform, filepath) {
 			grunt.util.spawn({
@@ -195,7 +183,8 @@ module.exports = function(grunt) {
 				var sketchData = JSON.parse(result);
 				var artboardData = [];
 				var artboardNames = [];
-				for (var i = 0; i < sketchData.pages.length; i++) {
+
+				for (var i = 0; i < sketchData.pages.length; i++) { //TODO: artboardData = sketchData.pages.forEach...
 					if(sketchData.pages[i].name.toUpperCase() == platform){
 						artboardData.push(sketchData.pages[i].artboards);
 					}
@@ -215,14 +204,14 @@ module.exports = function(grunt) {
 
 		var errorMsg = '\n \n Try running:  \
 		\n grunt export \
-		\n grunt export --platform Android \
 		\n grunt export --platform iOS \
 		\n grunt export --platform Web';
 
-		if (!(options.platforms.includes(platform) || platform == 'ALL')){
+		if (!isValidPlatform){
 			grunt.log.error('"' + platform + '"' + ' is not a valid platform name', errorMsg);
 			return false;
 		}
+
 		// We should probably add a way to just export a single icon
 		// by passing in a filepath to some kind of 'src' option
 		this.files.forEach(function(f) {
@@ -232,17 +221,23 @@ module.exports = function(grunt) {
 				if (!grunt.file.exists(filepath)) {
 					grunt.log.warn('Sketch file "' + filepath + '" not found.');
 					return false;
-				}
-
-				if(platform !== 'ALL') {
-					exportFn(platform, filepath);
 				} else {
-					for (var i = 0; i < options.platforms.length; i++) {
-						exportFn(options.platforms[i], filepath);
-					}
+					return true;
 				}
 
 			});
+
+			src.forEach(filePath => {
+				if (platform !== 'ALL') {
+					exportFn(platform, filePath);
+				} else {
+					for (var i = 0; i < platformDistributions.length; i++) {
+						exportFn(platformDistributions[i], filePath);
+					}
+				}
+			});
+
+
 
 		});
 
