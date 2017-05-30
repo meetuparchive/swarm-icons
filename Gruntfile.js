@@ -7,11 +7,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-exec');
 
-	grunt.registerTask(
-		'generateConstants',
-		() => require('./tasks/generateConstants.js')(grunt)
-	);
-
 	var DIST = 'dist/',
 		DIST_OPTIMIZED = `${DIST}optimized/`,
 		DIST_ANDROID = `${DIST}android/`,
