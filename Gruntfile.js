@@ -5,13 +5,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-exec');
 
 	var DIST = 'dist/',
-		DIST_OPTIMIZED = DIST + 'svg/optimized/',
-		DIST_IOS = DIST + 'iOS/',
-		DIST_SPRITE = DIST + 'svg/sprite/',
-		DIST_ICONS_IOS = DIST + 'pdf',
-		DIST_ICONS_WEB = DIST + 'svg/raw',
+		DIST_OPTIMIZED = `${DIST}optimized/`,
+		DIST_ANDROID = `${DIST}android/`,
+		DIST_IOS = `${DIST}iOS/`,
+		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
 
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 			default: {
 				files: [{
 					src: ['dist/svg/optimized/*.svg'],
-					dest: DIST_SPRITE + 'sprite.inc'
+					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
 		},
@@ -87,8 +87,17 @@ module.exports = function(grunt) {
 				srcDir: DIST_SPRITE // resovle @include directive to built sprite
 			},
 			docs: {
-				src: DOC_SRC + 'index.html',
-				dest: DOC_DEST + 'index.html'
+				src: `${DOC_SRC}index.html`,
+				dest: `${DOC_DEST}index.html`
+			}
+		},
+
+		//
+		// Other build scripts
+		//
+		exec: {
+			jsConstants: {
+				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
 			}
 		},
 
@@ -114,8 +123,8 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask('optimize', ['svgmin']);
-  grunt.registerTask('export', ['export']); //'clean:icons',
-	grunt.registerTask('dist', ['optimize', 'svgstore']);
+  grunt.registerTask('export', ['clean:icons', 'export']);
+	grunt.registerTask('dist', ['optimize', 'svgstore', 'exec:jsConstants']);
 
 	grunt.registerTask('default', ['clean:all', 'dist', 'preprocess']);
 	grunt.registerTask('ghpages', ['default', 'gh-pages']);
