@@ -8,9 +8,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 
 	var DIST = 'dist/',
+		DIST_JS = `${DIST}js/`
+		DIST_SVG = `${DIST}svg/`,
 		DIST_OPTIMIZED = `${DIST}optimized/`,
-		DIST_ANDROID = `${DIST}android/`,
-		DIST_IOS = `${DIST}iOS/`,
+		DIST_PDF = `${DIST}pdf/`,
 		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
@@ -24,13 +25,12 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			all: [DIST_OPTIMIZED, DIST_IOS, DIST_SPRITE, DOC_DEST],
-			icons: [DIST_ICONS_IOS, DIST_ICONS_WEB]
+			all: [DIST_JS, DIST_SVG, DIST_OPTIMIZED, DIST_PDF, DIST_SPRITE, DOC_DEST],
 		},
 
 		//
 		// SVG optimization step
-		// (writes to "optimized" distribution)
+		// svg dist to optimized dist
 		//
 		'svgmin': {
 			options: {
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'dist/svg/raw',
+					cwd: DIST_SVG,
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['dist/svg/optimized/*.svg'],
+					src: [`${DIST_OPTIMIZED}*.svg`],
 					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 		//
 		exec: {
 			jsConstants: {
-				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
+				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST_JS}'`
 			}
 		},
 
@@ -121,14 +121,6 @@ module.exports = function(grunt) {
 
 	});
 
-
-	grunt.registerTask('optimize', ['svgmin']);
-  grunt.registerTask('export', ['clean:icons', 'export']);
-	grunt.registerTask('dist', ['optimize', 'svgstore', 'exec:jsConstants']);
-
-	grunt.registerTask('default', ['clean:all', 'dist', 'preprocess']);
-	grunt.registerTask('ghpages', ['default', 'gh-pages']);
-
 	grunt.registerTask('export_artboards', 'export artboards', function(artboardNames, src, platform) {
 		var done = this.async();
 		var platformOptions = {};
@@ -137,14 +129,14 @@ module.exports = function(grunt) {
 
 		switch(platformName){
 			case 'WEB':
-				destination = DIST_ICONS_WEB
+				destination = DIST_SVG
 				platformOptions = {
 					formats: 'svg',
 					scales: '1.0'
 				}
 				break;
 			case 'IOS':
-				destination = DIST_ICONS_IOS
+				destination = DIST_PDF
 				platformOptions = {
 					formats: 'pdf',
 					scales: '1.0'
@@ -251,4 +243,10 @@ module.exports = function(grunt) {
 		});
 
 	});
+
+	grunt.registerTask('optimize', ['svgmin']);
+	grunt.registerTask('dist', ['export', 'optimize', 'svgstore', 'exec:jsConstants']);
+
+	grunt.registerTask('default', ['clean:all', 'dist', 'preprocess']);
+	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };
