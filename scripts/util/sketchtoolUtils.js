@@ -3,21 +3,21 @@ const exec = require('child_process').exec;
 /**
  * @param {JSON} artboardsJSON - artboards JSON metadata from sketch file
  * @param {String} platform- the sketch "page" from which to get artboards
- * @returns {Array} list of artboard names for given platform
+ * @returns {Array} list of artboard ids for given platform
  */
-const getArtboardNames = (artboardsJSON, platform) => {
+const getArtboardIds = (artboardsJSON, platform) => {
 	const platformPage = JSON.parse(artboardsJSON)
 		.pages
 		.filter(page => page.name.toUpperCase() === platform.toUpperCase());
 
 	if (!platformPage) {
-		throw new Error(`getArtboardNames: ${platform} is not a valid platform`);
+		throw new Error(`getArtboardIds: ${platform} is not a valid platform`);
 	}
 
 	return platformPage
 		.pop()
 		.artboards
-		.map(board => board.name);
+		.map(board => board.id);
 };
 
 /**
@@ -51,10 +51,10 @@ exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
 			//
 			// `sketchtool` will generate an export file for each artboard.
 			exec(
-				`${exportCmdBase } ${exportCmdOptions} --items=${getArtboardNames(result, platform)}`,
+				`${exportCmdBase } ${exportCmdOptions} --items=${getArtboardIds(result, platform)}`,
 				(error, result) => {
 					if (error !== null) throw new Error(`exec error: ${error}`);
-					console.warn(result);
+					console.info(result);
 				}
 			);
 		}
