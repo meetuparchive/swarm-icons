@@ -18,22 +18,11 @@ const DEST_DIR = process.argv[3];
 const PLATFORM = process.argv[4];
 const FORMAT = process.argv[5];
 
-exportArtboards(
-	'src/sketch/Star.sketch',
-	'dist/svg/',
-	'Web',
-	'svg'
-);
-
-/*
- *fs.readdirSync(SRC_DIR)
- *   .forEach(file => {
- *      const filePath = `${SRC_DIR}${file}`;
- *      console.warn(filePath);
- *      exportArtboards(
- *         filePath,
- *         DEST_DIR,
- *         FORMAT
- *      );
- *   });
- */
+fs.readdirSync(SRC_DIR)
+	.forEach(file => {
+		exportArtboards(
+			`${SRC_DIR}${file}`,
+			DEST_DIR,
+			FORMAT
+		);
+	});

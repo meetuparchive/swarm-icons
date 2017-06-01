@@ -16,7 +16,7 @@ const getArtboardIds = (artboardsJSON, platform) => {
 
 	return platformPage
 		.pop()
-		.artboards
+		jartboards
 		.map(board => board.id);
 };
 
