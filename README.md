@@ -41,10 +41,13 @@ If the svg sprite is included at the top of every HTML document in your React pr
 ## Modifying the icon library
 
 #### Adding new icons
+
+**You must have the [`sketchtool` cli](https://www.sketchapp.com/tool/) in order to run the build**
+
 0. Check out a new branch. For example, `new_fancy_icon`.
 1. Use sketch template in `design_resources` for your new icon
 2. Commit your icon sketch file to `src/sketch/`
-3. Export your icon as SVG and commit it to `src/svg/`. Follow the "dash-between-words" file naming convention.
+3. run the `grunt` command
 4. Submit a pull request
 
 Once the pull request is merged, we can manually run `grunt` and `grunt ghpages` in

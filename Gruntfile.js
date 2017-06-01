@@ -8,9 +8,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-exec');
 
 	var DIST = 'dist/',
+		DIST_JS = `${DIST}js/`
+		DIST_SVG = `${DIST}svg/`,
 		DIST_OPTIMIZED = `${DIST}optimized/`,
-		DIST_ANDROID = `${DIST}android/`,
-		DIST_IOS = `${DIST}iOS/`,
+		DIST_PDF = `${DIST}pdf/`,
 		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
@@ -24,12 +25,12 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
+			all: [DIST_JS, DIST_SVG, DIST_OPTIMIZED, DIST_PDF, DIST_SPRITE, DOC_DEST],
 		},
 
 		//
 		// SVG optimization step
-		// (writes to "optimized" distribution)
+		// svg dist to optimized dist
 		//
 		'svgmin': {
 			options: {
@@ -38,13 +39,18 @@ module.exports = function(grunt) {
 					{ collapseGroups: true },
 					{ removeEmptyAttrs: true },
 					{ removeUselessStrokeAndFill: true },
-					{ removeViewbox: false }
+					{ removeViewbox: false },
+					{
+						removeAttrs: {
+							attrs: ['fill']
+						}
+					}
 				]
 			},
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/svg',
+					cwd: DIST_SVG,
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
@@ -61,7 +67,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['src/svg/*.svg'],
+					src: [`${DIST_OPTIMIZED}*.svg`],
 					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
@@ -91,7 +97,7 @@ module.exports = function(grunt) {
 		//
 		exec: {
 			jsConstants: {
-				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
+				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST_JS}'`
 			}
 		},
 
@@ -105,14 +111,142 @@ module.exports = function(grunt) {
 				base: DOC_DEST
 			},
 			src: ['**']
+		},
+
+		'export': {
+			target: {
+				src: ['src/sketch/*.sketch']
+			},
 		}
 
 	});
 
+	grunt.registerTask('export_artboards', 'export artboards', function(artboardNames, src, platform) {
+		var done = this.async();
+		var platformOptions = {};
+		var platformName = platform.toUpperCase();
+		var destination;
+
+		switch(platformName){
+			case 'WEB':
+				destination = DIST_SVG
+				platformOptions = {
+					formats: 'svg',
+					scales: '1.0'
+				}
+				break;
+			case 'IOS':
+				destination = DIST_PDF
+				platformOptions = {
+					formats: 'pdf',
+					scales: '1.0'
+				}
+				break;
+
+			default:
+				console.log('platform is invalid')
+		}
+
+		grunt.util.spawn({
+			cmd: 'sketchtool',
+			args: [
+				'export',
+				'artboards',
+				src,
+				'--items=' + artboardNames,
+				'--scales=' + platformOptions.scales,
+				'--output=' + destination,
+				'--formats=' + platformOptions.formats
+				]
+		}, function(error, result, code){
+			done();
+		});
+	});
+
+	var getArtboards = function(artboardJSON, artboardNames) {
+		return artboardJSON.map(board => {
+			artboardNames.push(board.name);
+		});
+	};
+
+	grunt.registerMultiTask('export', 'list artboards', function(){
+		var done = this.async();
+		var options = this.options();
+		var platform = grunt.option('platform') ? grunt.option('platform').toUpperCase() : 'ALL';
+		var platformDistributions = ['IOS', 'WEB'];
+		var isValidPlatform = ['ALL', ...platformDistributions].includes(platform);
+
+		var exportFn = function(platform, filepath) {
+			grunt.util.spawn({
+				cmd: 'sketchtool',
+				args: ['list', 'artboards', filepath]
+			}, function(error, result, code) {
+				var sketchData = JSON.parse(result);
+				var artboardData = [];
+				var artboardNames = [];
+
+				for (var i = 0; i < sketchData.pages.length; i++) { //TODO: artboardData = sketchData.pages.forEach...
+					if(sketchData.pages[i].name.toUpperCase() == platform){
+						artboardData.push(sketchData.pages[i].artboards);
+					}
+				}
+				var artboardDataFlat = [].concat.apply([], artboardData);
+
+				grunt.task.run([
+					'export_artboards'
+						+ ':' + getArtboards(artboardDataFlat, artboardNames)
+						+ ':' + filepath
+						+ ':' + platform
+				]);
+
+				done();
+			});
+		};
+
+		var errorMsg = '\n \n Try running:  \
+		\n grunt export \
+		\n grunt export --platform iOS \
+		\n grunt export --platform Web';
+
+		if (!isValidPlatform){
+			grunt.log.error('"' + platform + '"' + ' is not a valid platform name', errorMsg);
+			return false;
+		}
+
+		// We should probably add a way to just export a single icon
+		// by passing in a filepath to some kind of 'src' option
+		this.files.forEach(function(f) {
+			var src = f.src.filter(function(filepath) {
+
+				// Maybe we don't need this since we're only supporting generating all files at once?
+				if (!grunt.file.exists(filepath)) {
+					grunt.log.warn('Sketch file "' + filepath + '" not found.');
+					return false;
+				} else {
+					return true;
+				}
+
+			});
+
+			src.forEach(filePath => {
+				if (platform !== 'ALL') {
+					exportFn(platform, filePath);
+				} else {
+					for (var i = 0; i < platformDistributions.length; i++) {
+						exportFn(platformDistributions[i], filePath);
+					}
+				}
+			});
+
+
+
+		});
+
+	});
 
 	grunt.registerTask('optimize', ['svgmin']);
-	grunt.registerTask('dist', ['optimize', 'svgstore', 'exec:jsConstants']);
+	grunt.registerTask('dist', ['export', 'optimize', 'svgstore', 'exec:jsConstants']);
 
-	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
+	grunt.registerTask('default', ['clean:all', 'dist', 'preprocess']);
 	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };
