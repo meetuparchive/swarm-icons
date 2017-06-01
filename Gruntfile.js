@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-exec');
 
 	var DIST = 'dist/',
 		DIST_OPTIMIZED = DIST + 'svg/optimized/',
@@ -89,8 +90,17 @@ module.exports = function(grunt) {
 				srcDir: DIST_SPRITE // resovle @include directive to built sprite
 			},
 			docs: {
-				src: DOC_SRC + 'index.html',
-				dest: DOC_DEST + 'index.html'
+				src: `${DOC_SRC}index.html`,
+				dest: `${DOC_DEST}index.html`
+			}
+		},
+
+		//
+		// Other build scripts
+		//
+		exec: {
+			jsConstants: {
+				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
 			}
 		},
 
