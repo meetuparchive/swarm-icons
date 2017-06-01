@@ -7,14 +7,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-exec');
 
+	var SRC = 'src/',
+		SRC_SKETCH = `${SRC}sketch/`;
+
 	var DIST = 'dist/',
-		DIST_OPTIMIZED = DIST + 'svg/optimized/',
-		DIST_ANDROID = DIST + 'android/',
-		DIST_IOS = DIST + 'iOS/',
-		DIST_SPRITE = DIST + 'svg/sprite/',
-		DIST_ICONS_ANDROID = DIST + 'vectorDrawable',
-		DIST_ICONS_IOS = DIST + 'pdf',
-		DIST_ICONS_WEB = DIST + 'svg/raw',
+		DIST_JS = `${DIST}js/`,
+		DIST_SVG = `${DIST}svg/`,
+		DIST_OPTIMIZED = `${DIST}optimized/`,
+		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
 
@@ -27,8 +27,12 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST],
-			icons: [DIST_ICONS_ANDROID, DIST_ICONS_IOS, DIST_ICONS_WEB]
+			all: [
+				DIST_SVG,
+				DIST_OPTIMIZED,
+				DIST_SPRITE,
+				DOC_DEST
+			],
 		},
 
 		//
@@ -53,7 +57,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'dist/svg/raw',
+					cwd: DIST_SVG,
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
@@ -70,8 +74,8 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['dist/svg/optimized/*.svg'],
-					dest: DIST_SPRITE + 'sprite.inc'
+					src: [`${DIST_OPTIMIZED}*.svg`],
+					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
 		},
@@ -99,8 +103,11 @@ module.exports = function(grunt) {
 		// Other build scripts
 		//
 		exec: {
+			exportSVG: {
+				cmd: `node scripts/exportFromSketch.js ${SRC_SKETCH} ${DIST_SVG} web svg`
+			},
 			jsConstants: {
-				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
+				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST_JS}'`
 			}
 		},
 
@@ -118,9 +125,15 @@ module.exports = function(grunt) {
 	});
 
 
-	grunt.registerTask('optimize', ['svgmin']);
-	grunt.registerTask('dist', ['optimize', 'svgstore']);
+	grunt.registerTask('dist', [
+		'exec:exportSVG'      // 0. build SVG dist from sketch files
+	]);
+		/*
+		 *'svgmin',              // 1. build optimized dist from SVG dist
+		 *'exec:jsConstants',    // 2. js valid shape constants from optimized dist
+		 *'svgstore'             // 3. build sprite from optimized dist
+		 */
 
-	grunt.registerTask('default', ['clean:all', 'dist', 'preprocess']);
+	grunt.registerTask('default', ['clean:all', 'dist']);
 	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };
