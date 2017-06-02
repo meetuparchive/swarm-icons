@@ -123,17 +123,4 @@ module.exports = function(grunt) {
 			src: ['**']
 		}
 	});
-
-
-	grunt.registerTask('dist', [
-		'exec:exportSVG'      // 0. build SVG dist from sketch files
-	]);
-		/*
-		 *'svgmin',              // 1. build optimized dist from SVG dist
-		 *'exec:jsConstants',    // 2. js valid shape constants from optimized dist
-		 *'svgstore'             // 3. build sprite from optimized dist
-		 */
-
-	grunt.registerTask('default', ['clean:all', 'dist']);
-	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };

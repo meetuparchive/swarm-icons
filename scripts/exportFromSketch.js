@@ -23,6 +23,7 @@ fs.readdirSync(SRC_DIR)
 		exportArtboards(
 			`${SRC_DIR}${file}`,
 			DEST_DIR,
+			PLATFORM,
 			FORMAT
 		);
 	});

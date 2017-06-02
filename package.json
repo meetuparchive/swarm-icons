@@ -7,7 +7,14 @@
   "dist": "dist"
  },
  "scripts": {
-  "build": "grunt"
+  "clean": "grunt clean:all",
+  "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
+  "dist:optimized": "grunt svgmin",
+  "dist:js": "node scripts/generateConstants.js dist/optimized/ dist/js/",
+  "dist:sprite": "grunt svgstore",
+  "docs": "grunt preprocess",
+  "build": "yarn run clean && yarn run dist:svg && yarn run dist:optimized && yarn run dist:js && yarn run dist:sprite && yarn run docs",
+  "publish-docs": "yarn run build && grunt gh-pages"
  },
  "repository": {
   "type": "git",

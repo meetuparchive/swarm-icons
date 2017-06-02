@@ -8,15 +8,13 @@ const exec = require('child_process').exec;
 const getArtboardIds = (artboardsJSON, platform) => {
 	const platformPage = JSON.parse(artboardsJSON)
 		.pages
-		.filter(page => page.name.toUpperCase() === platform.toUpperCase());
+		.filter(page => page.name.toUpperCase() === platform.toUpperCase())
+		.pop();
 
-	if (!platformPage) {
-		throw new Error(`getArtboardIds: ${platform} is not a valid platform`);
-	}
+	if (!platformPage) return false;
 
 	return platformPage
-		.pop()
-		jartboards
+		.artboards
 		.map(board => board.id);
 };
 
@@ -29,7 +27,6 @@ const getArtboardIds = (artboardsJSON, platform) => {
  * @param {String} format - `svg` or `pdf`
  */
 exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
-
 	const exportCmdBase = `sketchtool export artboards ${filePath}`;
 	const exportCmdOptions = `--scales=1.0 --output=${destination} --formats=${format}`;
 
@@ -46,17 +43,21 @@ exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
 
 			if (error !== null) throw new Error(`exec error: ${error}`);
 
+			const itemsOption = getArtboardIds(result, platform);
+
 			// Run the export command with the list of arboards
 			// for the given file.
 			//
 			// `sketchtool` will generate an export file for each artboard.
-			exec(
-				`${exportCmdBase } ${exportCmdOptions} --items=${getArtboardIds(result, platform)}`,
-				(error, result) => {
-					if (error !== null) throw new Error(`exec error: ${error}`);
-					console.info(result);
-				}
-			);
+			if (itemsOption) {
+				exec(
+					`${exportCmdBase} ${exportCmdOptions} --items=${itemsOption}`,
+					(error, result) => {
+						if (error !== null) throw new Error(`exec error: ${error}`);
+						console.info(result);
+					}
+				);
+			}
 		}
 	);
 };
