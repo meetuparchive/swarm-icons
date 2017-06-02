@@ -5,7 +5,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-exec');
 
 	var SRC = 'src/',
 		SRC_SKETCH = `${SRC}sketch/`;
@@ -96,18 +95,6 @@ module.exports = function(grunt) {
 			docs: {
 				src: `${DOC_SRC}index.html`,
 				dest: `${DOC_DEST}index.html`
-			}
-		},
-
-		//
-		// Other build scripts
-		//
-		exec: {
-			exportSVG: {
-				cmd: `node scripts/exportFromSketch.js ${SRC_SKETCH} ${DIST_SVG} web svg`
-			},
-			jsConstants: {
-				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST_JS}'`
 			}
 		},
 

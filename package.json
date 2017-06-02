@@ -32,8 +32,5 @@
   "grunt-svgstore": "1.0.0"
  },
  "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT",
- "dependencies": {
-  "grunt-exec": "^2.0.0"
- }
+ "license": "MIT"
 }
