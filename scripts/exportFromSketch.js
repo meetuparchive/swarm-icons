@@ -2,7 +2,7 @@ const fs = require('fs');
 const exportArtboards = require('./util/sketchtoolUtils').exportArtboardsFromFile;
 
 /**
- * Generates SVG icons from sketch files in `src/sketch`
+ * Generates icon distributions from sketch files in `src/sketch`
  *
  * <src dir path> - location of sketch files
  * <dest dir path> - location to export artboards
