@@ -15,10 +15,6 @@ Icon library module of the [Swarm Design System](https://github.com/meetup/swarm
 #### Installation
 
 ```bash
-npm install swarm-icons --save-dev
-```
-
-```bash
 yarn add swarm-icons
 ```
 
@@ -44,17 +40,18 @@ If the svg sprite is included at the top of every HTML document in your React pr
 0. Check out a new branch. For example, `new_fancy_icon`.
 1. Use sketch template in `design_resources` for your new icon
 2. Commit your icon sketch file to `src/sketch/`
-3. Export your icon as SVG and commit it to `src/svg/`. Follow the "dash-between-words" file naming convention.
-4. Submit a pull request
-
-Once the pull request is merged, we can manually run `grunt` and `grunt ghpages` in
-the `master` branch. This will generate distributions and documentation for our Icon library.
+3. Run `yarn run build` to export icon distributions from sketch files
+4. Commit the resulting changes
+5. Submit a pull request
+6. The PR will publish a `-beta` tag to npm
 
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
-1. Use the sketch source file in `src/sketch/` to make edits.
-2. Commit your changes and submit a PR.
-3. The PR will publish a `-beta` tag to npm
+1. Use the sketch source file in `src/sketch/` to make edits
+3. Run `yarn run build` to export icon distributions from sketch files
+4. Commit the resulting changes
+5. Submit a pull request
+6. The PR will publish a `-beta` tag to npm
 
 #### Releases
 This package uses semver versioning to tag releases, although the patch version
@@ -70,22 +67,33 @@ README.
 
 ## Development
 
-#### grunt commands
+### Setup
+**You must have the [`sketchtool cli`](https://www.sketchapp.com/tool/) installed to run `build` commands**
 
-task         | description
------------- | ------------------------
-[default]    | cleans and rebuilds docs and distributions
-`dist`       | builds icon distributions to `dist/`
-`optimize`   | optimizes files from `src/` into `dist/optimized/`
-`ghpages`    | clean & rebuild; pushes built doc html file to `gh-pages` branch
+Once you have the latest version of Sketch installed, run the following to set up `sketchtool`:
 
-#### TODO:
-- Travis integration
-- auto-export SVG files to `src/svg` from assets committed to `src/sketch`
+```bash
+~/Applications/Sketch.app/Contents/Resources/sketchtool/install.sh
+```
+
+#### yarn commands
+
+task                      | description
+------------------------- | ------------------------
+`yarn run build`          | builds all icon distributions to `dist/`; builds docs to `doc/build`
+`yarn run publish-docs`   | builds and publishes documentation to github pages
 
 ---------
 
 # Release notes
+
+## v1.2.0
+- Major (non-breaking) changes to sketch file artboards and pages
+	- arboards names are now used to generate file names
+	- artboards are organized by "platform" page
+- Improved build to generate distributions directly from sketch files
+	- **you must now have the `sketchtool` cli to build**
+- Added a `pdf` distribution for iOS
 
 ## v1.1.0
 - Removed `chevron-down`.
