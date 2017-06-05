@@ -5,12 +5,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-exec');
+
+	var SRC = 'src/',
+		SRC_SKETCH = `${SRC}sketch/`;
 
 	var DIST = 'dist/',
+		DIST_JS = `${DIST}js/`,
+		DIST_SVG = `${DIST}svg/`,
 		DIST_OPTIMIZED = `${DIST}optimized/`,
-		DIST_ANDROID = `${DIST}android/`,
-		DIST_IOS = `${DIST}iOS/`,
 		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
@@ -24,7 +26,12 @@ module.exports = function(grunt) {
 		// removes all distrubtions prior to rebuilding
 		//
 		'clean': {
-			all: [DIST_OPTIMIZED, DIST_ANDROID, DIST_IOS, DIST_SPRITE, DOC_DEST]
+			all: [
+				DIST_SVG,
+				DIST_OPTIMIZED,
+				DIST_SPRITE,
+				DOC_DEST
+			],
 		},
 
 		//
@@ -38,13 +45,18 @@ module.exports = function(grunt) {
 					{ collapseGroups: true },
 					{ removeEmptyAttrs: true },
 					{ removeUselessStrokeAndFill: true },
-					{ removeViewbox: false }
+					{ removeViewbox: false },
+					{
+						removeAttrs: {
+							attrs: ['fill']
+						}
+					}
 				]
 			},
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/svg',
+					cwd: DIST_SVG,
 					src: ['**/*.svg'],
 					dest: DIST_OPTIMIZED
 				}]
@@ -61,7 +73,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: ['src/svg/*.svg'],
+					src: [`${DIST_OPTIMIZED}*.svg`],
 					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
@@ -87,15 +99,6 @@ module.exports = function(grunt) {
 		},
 
 		//
-		// Other build scripts
-		//
-		exec: {
-			jsConstants: {
-				cmd: `node scripts/generateConstants.js '${DIST_OPTIMIZED}' '${DIST}/js/'`
-			}
-		},
-
-		//
 		// LIVE DOCS
 		// gh-pages task to move built doc html
 		// to root dir of gh-pages branch
@@ -106,13 +109,5 @@ module.exports = function(grunt) {
 			},
 			src: ['**']
 		}
-
 	});
-
-
-	grunt.registerTask('optimize', ['svgmin']);
-	grunt.registerTask('dist', ['optimize', 'svgstore', 'exec:jsConstants']);
-
-	grunt.registerTask('default', ['clean', 'dist', 'preprocess']);
-	grunt.registerTask('ghpages', ['default', 'gh-pages']);
 };
