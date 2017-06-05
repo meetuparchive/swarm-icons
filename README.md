@@ -36,14 +36,45 @@ If the svg sprite is included at the top of every HTML document in your React pr
 
 ## Modifying the icon library
 
+#### Sketch file organization
+Each platform (web, iOS, Android) has its own page in an icon sketch file. Each platform page contains
+normal and "small" icon variants. We use this information hierarchy to support different shapes based
+on platform or variant.
+
+**Sketch file structure**
+```
+<file.sketch>
+   |
+   | - Web (page)
+	|   |- icon-name (artboard for default icon)
+	|   |- icon-name--small (artboard for small variant)
+	|   |- icon-name--[otherVariant] (artboard for other variant)
+   | - iOS (page)
+	|   |- icon-name (artboard for default icon)
+	|   |- icon-name--small (artboard for small variant)
+	|   |- icon-name--[otherVariant] (artboard for other variant)
+   | - Android (page)
+	    |- icon-name (artboard for default icon)
+	    |- icon-name--small (artboard for small variant)
+	    |- icon-name--[otherVariant] (artboard for other variant)
+```
+
+##### Artboard naming conventions
+- Use lower case letters and hyphens only
+- For icon variants such as "small", use a double dash
+	- for example, `my-icon--small`
+
+
 #### Adding new icons
 0. Check out a new branch. For example, `new_fancy_icon`.
-1. Use sketch template in `design_resources` for your new icon
-2. Commit your icon sketch file to `src/sketch/`
-3. Run `yarn run build` to export icon distributions from sketch files
+1. Use Sketch or Adobe Illustrator templates in `design_resources/` to design a new icon
+	- `IconGrid.ai` contains the icon grid
+	- `IconExport.sketch` contains the basic setup for an icon sketch file
+2. Save the sketch file for your icon to `src/sketch/`
+3. Run `yarn run build` to export icon distribution from sketch files checked into `src/sketch`
 4. Commit the resulting changes
 5. Submit a pull request
-6. The PR will publish a `-beta` tag to npm
+6. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
 
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
