@@ -19,6 +19,11 @@ env:
 before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  - "wget http://sketchtool.bohemiancoding.com/sketchtool-latest.zip"
+  - "unzip sketchtool-latest.zip"
+  - "cd sketchtool"
+  - "./install.sh"
+  - "cd .."
 
 before_script:
   - git diff --exit-code
