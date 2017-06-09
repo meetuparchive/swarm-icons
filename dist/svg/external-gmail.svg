@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
     <title>external-gmail</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="external-gmail" fill-rule="nonzero" fill="#000000">
-            <path d="M20,4 L4,4 C2.88235294,4 2,4.88235294 2,6 L2,18 C2,19.1176471 2.88235294,20 4,20 L20,20 C21.1176471,20 22,19.1176471 22,18 L22,6 C22,4.88235294 21.1176471,4 20,4 Z M20,18 L18,18 L18,9.17647059 L12,13 L6,9.17647059 L6,18 L4,18 L4,6 L5.17647059,6 L12,10.1764706 L18.8235294,6 L20,6 L20,18 L20,18 Z" id="Shape"></path>
+            <path d="M23.6,4 L4.4,4 C3.05882353,4 2,5.05882353 2,6.4 L2,20.8 C2,22.1411765 3.05882353,23.2 4.4,23.2 L23.6,23.2 C24.9411765,23.2 26,22.1411765 26,20.8 L26,6.4 C26,5.05882353 24.9411765,4 23.6,4 Z M23.6,20.8 L21.2,20.8 L21.2,10.2117647 L14,14.8 L6.8,10.2117647 L6.8,20.8 L4.4,20.8 L4.4,6.4 L5.81176471,6.4 L14,11.4117647 L22.1882353,6.4 L23.6,6.4 L23.6,20.8 L23.6,20.8 Z" id="Shape"></path>
         </g>
     </g>
 </svg>

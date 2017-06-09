@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
     <title>external-youtube</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="external-youtube" fill-rule="nonzero" fill="#000000">
-            <path d="M12,4.3 C2.172,4.3 2,5.174 2,12 C2,18.826 2.172,19.7 12,19.7 C21.828,19.7 22,18.826 22,12 C22,5.174 21.828,4.3 12,4.3 Z M15.205,12.334 L10.715,14.43 C10.322,14.612 10,14.408 10,13.974 L10,10.026 C10,9.593 10.322,9.388 10.715,9.57 L15.205,11.666 C15.598,11.85 15.598,12.15 15.205,12.334 Z" id="Shape"></path>
+            <path d="M14,5 C2.2064,5 2,6.0488 2,14.24 C2,22.4312 2.2064,23.48 14,23.48 C25.7936,23.48 26,22.4312 26,14.24 C26,6.0488 25.7936,5 14,5 Z M17.846,14.6408 L12.458,17.156 C11.9864,17.3744 11.6,17.1296 11.6,16.6088 L11.6,11.8712 C11.6,11.3516 11.9864,11.1056 12.458,11.324 L17.846,13.8392 C18.3176,14.06 18.3176,14.42 17.846,14.6408 Z" id="Shape"></path>
         </g>
     </g>
 </svg>
