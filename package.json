@@ -1,36 +1,36 @@
 {
- "name": "swarm-icons",
- "version": "0.0.0",
- "description": "Icons for Swarm Design System",
- "directories": {
-  "doc": "docs/build",
-  "dist": "dist"
- },
- "scripts": {
-  "clean": "grunt clean:all",
-  "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
-  "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
-  "dist:optimized": "grunt svgmin",
-  "dist:js": "node scripts/generateConstants.js dist/optimized/ dist/js/",
-  "dist:sprite": "grunt svgstore",
-  "docs": "grunt preprocess",
-  "build": "yarn run clean && yarn run dist:svg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:js && yarn run dist:sprite && yarn run docs",
-  "publish-docs": "yarn run build && grunt gh-pages"
- },
- "repository": {
-  "type": "git",
-  "url": "git://github.com/meetup/swarm-icons.git"
- },
- "devDependencies": {
-  "@alrra/travis-scripts": "^3.0.1",
-  "grunt": "~0.4.5",
-  "grunt-cli": "",
-  "grunt-contrib-clean": "0.6.0",
-  "grunt-gh-pages": "0.10.0",
-  "grunt-preprocess": "5.1.0",
-  "grunt-svgmin": "4.0.0",
-  "grunt-svgstore": "1.0.0"
- },
- "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT"
+  "name": "swarm-icons",
+  "version": "1.2.80-beta",
+  "description": "Icons for Swarm Design System",
+  "directories": {
+    "doc": "docs/build",
+    "dist": "dist"
+  },
+  "scripts": {
+    "clean": "grunt clean:all",
+    "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
+    "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
+    "dist:optimized": "grunt svgmin",
+    "dist:js": "node scripts/generateConstants.js dist/optimized/ dist/js/",
+    "dist:sprite": "grunt svgstore",
+    "docs": "grunt preprocess",
+    "build": "yarn run clean && yarn run dist:svg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:js && yarn run dist:sprite && yarn run docs",
+    "publish-docs": "yarn run build && grunt gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meetup/swarm-icons.git"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-preprocess": "5.1.0",
+    "grunt-svgmin": "4.0.0",
+    "grunt-svgstore": "1.0.0"
+  },
+  "author": "adamd@meetup.com, mikep@meetup.com",
+  "license": "MIT"
 }
