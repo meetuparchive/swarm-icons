@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>check</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="check" fill="#000000">
+            <path d="M11,21 C10.744,21 10.488,20.902 10.293,20.707 L4.293,14.707 C3.902,14.316 3.902,13.684 4.293,13.293 C4.684,12.902 5.316,12.902 5.707,13.293 L11,18.586 L22.293,7.293 C22.684,6.902 23.316,6.902 23.707,7.293 C24.098,7.684 24.098,8.316 23.707,8.707 L11.707,20.707 C11.512,20.902 11.256,21 11,21" id="Fill-1"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>cross--small</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cross--small" fill="#000000">
+            <path d="M8.707,8 L13.853,2.854 C14.049,2.658 14.049,2.342 13.853,2.146 C13.658,1.951 13.342,1.951 13.146,2.146 L8,7.293 L2.853,2.146 C2.658,1.951 2.342,1.951 2.146,2.146 C1.951,2.342 1.951,2.658 2.146,2.854 L7.293,8 L2.146,13.146 C1.951,13.342 1.951,13.658 2.146,13.854 C2.244,13.951 2.372,14 2.5,14 C2.628,14 2.756,13.951 2.853,13.854 L8,8.707 L13.146,13.854 C13.244,13.951 13.372,14 13.5,14 C13.628,14 13.756,13.951 13.853,13.854 C14.049,13.658 14.049,13.342 13.853,13.146 L8.707,8 Z" id="Fill-1"></path>
+        </g>
+    </g>
+</svg>
