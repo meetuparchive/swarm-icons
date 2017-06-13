@@ -89,10 +89,10 @@ on platform or variant.
 #### Reviewing pull requests
 Use this handy checklist to review pull requests:
 
-[] Was an icon deleted? If so, did we bump the _minor_ version in `Makefile`?
-[] Was the entire `dist/` dir updated? If it was intentional, did we bump the _major_ version if icons were removed?
-[] Do generated file names in `dist/` match the name of the `.sketch` file committed?
-[] Does the icon name make sense out of context, or is it ambiguous?
+- [ ] Was an icon deleted? If so, did we bump the _minor_ version in `Makefile`?
+- [ ] Was the entire `dist/` dir updated? If it was intentional, did we bump the _major_ version if icons were removed?
+- [ ] Do generated file names in `dist/` match the name of the `.sketch` file committed?
+- [ ] Does the icon name make sense out of context, or is it ambiguous?
 
 #### Releases
 This package uses semver versioning to tag releases, although the patch version
