@@ -19,6 +19,29 @@ const DEST_DIR = process.argv[3];
 const PLATFORM = process.argv[4];
 const FORMAT = process.argv[5];
 
+//
+// Because we `diff` against `master` to select which files to export,
+// bail out if `src/sketch/` is in dirty state.
+//
+exec(
+	`git status --porcelain ${SRC_DIR}`,
+	(error, result) => {
+			if (error !== null) throw new Error(`exec error: ${error}`);
+
+			const localChanges = result
+				.split('\n')
+				.filter(f => f);
+
+			if (localChanges.length) {
+				console.error('\n---------------------------------------------------------------');
+				console.error('You must commit sketch files before exports can build.');
+				console.error(`Please commit your changes in ${SRC_DIR} and try again.`);
+				console.error('---------------------------------------------------------------\n');
+				process.exit(1);
+			}
+	}
+);
+
 /**
  * Uses sketchtoolUtils to export `fileNames` sketch files
  * to specified format and platform
