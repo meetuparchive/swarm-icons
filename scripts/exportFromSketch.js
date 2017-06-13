@@ -76,7 +76,7 @@ exec(
 						exportFiles(filesToExport);
 
 					} else {
-						console.info('No sketch changes found, halting build');
+						console.info('No sketch changes found, skipping build');
 					}
 
 				}
