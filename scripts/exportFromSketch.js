@@ -48,6 +48,11 @@ exec(
 					.pop()
 				);
 
-			exportFiles(modifiedFiles);
+			if (modifiedFiles.length) {
+				console.info(`Exporting ${modifiedFiles} as ${FORMAT} for ${PLATFORM}`);
+				exportFiles(modifiedFiles);
+			} else {
+				console.info('No sketch changes found, halting build');
+			}
 	}
 );
