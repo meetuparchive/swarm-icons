@@ -19,6 +19,29 @@ const DEST_DIR = process.argv[3];
 const PLATFORM = process.argv[4];
 const FORMAT = process.argv[5];
 
+//
+// Because we `diff` against `master` to select which files to export,
+// bail out if `src/sketch/` is in dirty state.
+//
+exec(
+	`git status --porcelain ${SRC_DIR}`,
+	(error, result) => {
+			if (error !== null) throw new Error(`exec error: ${error}`);
+
+			const localChanges = result
+				.split('\n')
+				.filter(f => f);
+
+			if (localChanges.length) {
+				console.error('\n---------------------------------------------------------------');
+				console.error('You must commit sketch files before exports can build.');
+				console.error(`Please commit your changes in ${SRC_DIR} and try again.`);
+				console.error('---------------------------------------------------------------\n');
+				process.exit(1);
+			}
+	}
+);
+
 /**
  * Uses sketchtoolUtils to export `fileNames` sketch files
  * to specified format and platform
@@ -49,38 +72,29 @@ const diffToArray = stdout => stdout
 		.pop()
 	);
 
+
+//
 // only build files that have changed
 //
-// we can't assume that the sketch files are committed before
-// running the build, so we must `diff` against master _and_
-// `status` the sketch source dir
+// `--diff-filter=ACMRT`
+// A - added
+// C - copied
+// M - modified
+// R - renamed
+// T - type (mode) change
 exec(
-	`git diff master --name-only ${SRC_DIR}`,
-	(error, committedFiles) => {
-			if (error !== null) throw new Error(`exec error: ${error}`);
+	`git diff master --diff-filter=ACMRT --name-only ${SRC_DIR}`,
+	(error, result) => {
+		if (error !== null) throw new Error(`exec error: ${error}`);
 
-			exec(
-				`git status --porcelain ${SRC_DIR}`,
-				(error, localModFiles) => {
-						if (error !== null) throw new Error(`exec error: ${error}`);
+		const filesToExport = diffToArray(result);
 
-					const filesToExport = Array.from(
-						new Set([
-							...diffToArray(committedFiles),
-							...diffToArray(localModFiles)
-						])
-					);
-
-					if (filesToExport.length) {
-						console.info(`Exporting ${filesToExport} as ${FORMAT} for ${PLATFORM}`);
-						exportFiles(filesToExport);
-
-					} else {
-						console.info('No sketch changes found, skipping build');
-					}
-
-				}
-			);
+		if (filesToExport.length) {
+			console.info(`Exporting ${filesToExport} as ${FORMAT} for ${PLATFORM}`);
+			exportFiles(filesToExport);
+		} else {
+			console.info('\nNo sketch changes found, skipping build\n');
+		}
 
 	}
 );
