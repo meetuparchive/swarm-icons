@@ -20,6 +20,9 @@ const PLATFORM = process.argv[4];
 const FORMAT = process.argv[5];
 
 /**
+ * Uses sketchtoolUtils to export `fileNames` sketch files
+ * to specified format and platform
+ *
  * @param {Array} fileNames - list of modified files from SRC_DIR
  */
 const exportFiles = fileNames => {
