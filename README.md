@@ -71,14 +71,16 @@ on platform or variant.
 	- `IconGrid.ai` contains the icon grid
 	- `IconExport.sketch` contains the basic setup for an icon sketch file
 2. Save the sketch file for your icon to `src/sketch/`
-3. Run `yarn run build` to export icon distribution from sketch files checked into `src/sketch`
-4. Commit the resulting changes
-5. Submit a pull request
-6. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
+3. Commit any changes to files in `src/sketch`
+4. Run `yarn run build` to export icon distribution from sketch files checked into `src/sketch`
+5. Commit the resulting changes
+6. Submit a pull request
+7. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
 
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
 1. Use the sketch source file in `src/sketch/` to make edits
+2. Commit any changes to files in `src/sketch`
 3. Run `yarn run build` to export icon distributions from sketch files
 4. Commit the resulting changes
 5. Submit a pull request
