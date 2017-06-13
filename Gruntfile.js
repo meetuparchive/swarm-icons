@@ -4,7 +4,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
-	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	var SRC = 'src/',
 		SRC_SKETCH = `${SRC}sketch/`;
@@ -20,19 +19,6 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
-
-		//
-		// CLEAN
-		// removes all distrubtions prior to rebuilding
-		//
-		'clean': {
-			all: [
-				DIST_SVG,
-				DIST_OPTIMIZED,
-				DIST_SPRITE,
-				DOC_DEST
-			],
-		},
 
 		//
 		// SVG optimization step
