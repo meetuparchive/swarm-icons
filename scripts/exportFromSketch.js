@@ -80,10 +80,9 @@ const diffToArray = stdout => stdout
 // A - added
 // C - copied
 // M - modified
-// R - renamed
 // T - type (mode) change
 exec(
-	`git diff master --diff-filter=ACMRT --name-only ${SRC_DIR}`,
+	`git diff master --diff-filter=ACMT --name-only ${SRC_DIR}`,
 	(error, result) => {
 		if (error !== null) throw new Error(`exec error: ${error}`);
 
