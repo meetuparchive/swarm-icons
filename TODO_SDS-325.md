@@ -1,3 +1,5 @@
 - [x] update js dist build
 - [ ] update sketch export build (check rename status)
 - [ ] make sure we include ChevronDown.sketch => chevron-down.sketch
+- [ ] clean dists and rebuild
+- [x] minor version bump in Makefile
