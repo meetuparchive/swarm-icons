@@ -132,7 +132,6 @@ task                      | description
 ## `v1.3.0`
 - added `chevron-down`
 - renamed sketch files to match base artboard names
-- rebuilt all dists
 
 ## `v1.2.0`
 - Major (non-breaking) changes to sketch file artboards and pages
