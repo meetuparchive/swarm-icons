@@ -1,0 +1,3 @@
+- [x] update js dist build
+- [ ] update sketch export build (check rename status)
+- [ ] make sure we include ChevronDown.sketch => chevron-down.sketch
