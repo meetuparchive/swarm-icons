@@ -33,6 +33,7 @@
  "author": "adamd@meetup.com, mikep@meetup.com",
  "license": "MIT",
  "dependencies": {
-  "mustache": "^2.3.0"
+  "mustache": "^2.3.0",
+  "xml2js": "^0.4.17"
  }
 }
