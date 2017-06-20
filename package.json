@@ -31,5 +31,8 @@
   "grunt-svgstore": "1.0.0"
  },
  "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT"
+ "license": "MIT",
+ "dependencies": {
+  "mustache": "^2.3.0"
+ }
 }

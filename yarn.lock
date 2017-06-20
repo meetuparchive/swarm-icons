@@ -438,10 +438,6 @@ grunt-contrib-clean@0.6.0:
   dependencies:
     rimraf "~2.2.1"
 
-grunt-exec@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/grunt-exec/-/grunt-exec-2.0.0.tgz#a575a620b1da4416c292c01df564c9296b80ab23"
-
 grunt-gh-pages@0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/grunt-gh-pages/-/grunt-gh-pages-0.10.0.tgz#69f1fa787f8021b715d20347c5d470a953501910"
@@ -799,6 +795,10 @@ multiline@^0.3.4:
   resolved "https://registry.yarnpkg.com/multiline/-/multiline-0.3.4.tgz#1d38cb053097b5b94b21fcd31b10b116559defdc"
   dependencies:
     strip-indent "^0.1.0"
+
+mustache@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/mustache/-/mustache-2.3.0.tgz#4028f7778b17708a489930a6e52ac3bca0da41d0"
 
 nopt@~1.0.10:
   version "1.0.10"
