@@ -8,5 +8,6 @@ npm-debug.log
 
 node_modules/
 doc/build/*
+.temp-android/
 
 github_deploy_key

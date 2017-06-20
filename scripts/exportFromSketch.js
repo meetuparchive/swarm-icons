@@ -7,7 +7,7 @@ const exec = require('child_process').exec;
  *
  * <src dir path> - location of sketch files
  * <dest dir path> - location to export artboards
- * <platform> - must be one of: 'ios', 'web'
+ * <platform> - must be one of: 'ios', 'web', 'android'
  * <export format> - must be one of: 'svg', 'pdf'
  *
  * Usage:
