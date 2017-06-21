@@ -2,7 +2,7 @@ const fs = require('fs');
 
 /**
  * Generates a js file with an Array constant containing each
- * icon shape name.
+ * icon shape name from sketch files.
  *
  * Usage:
  * `node generateConstants '<src dir path>' '<dest dir path>'`
@@ -12,8 +12,8 @@ const SRC_DIR = process.argv[2];
 const DEST_DIR = process.argv[3];
 
 const iconNames = fs.readdirSync(SRC_DIR)
-	.filter(f => !f.includes('--small'))
-	.map(f => f.replace('.svg', ''));
+	.filter(f => !f.includes('native'))    // files prefixed with `native` omit web artboards
+	.map(f => f.replace('.sketch', ''));   // take the shape name only
 
 const renderFileContent = iconNames => `/**
  * DO NOT EDIT DIRECTLY

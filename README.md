@@ -129,7 +129,11 @@ task                      | description
 
 # Release notes
 
-## v1.2.0
+## `v1.3.0`
+- added `chevron-down`
+- renamed sketch files to match base artboard names
+
+## `v1.2.0`
 - Major (non-breaking) changes to sketch file artboards and pages
 	- arboards names are now used to generate file names
 	- artboards are organized by "platform" page
@@ -137,10 +141,10 @@ task                      | description
 	- **you must now have the `sketchtool` cli to build**
 - Added a `pdf` distribution for iOS
 
-## v1.1.0
+## `v1.1.0`
 - Removed `chevron-down`.
 
-## v1.0.0
+## `v1.0.0`
 Some icon shapes have been deleted. A checklist of usage in consumer apps can be found [here](https://docs.google.com/a/meetup.com/spreadsheets/d/1wgm7-aooN_FJkSnnzS6JbempVaazqX3suBtQv9Q0tNY/edit?usp=sharing)
 
 - Added new icon shapes

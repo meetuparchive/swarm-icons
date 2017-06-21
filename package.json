@@ -9,8 +9,8 @@
  "scripts": {
   "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
   "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
+  "dist:js": "node scripts/generateConstants.js src/sketch dist/js/",
   "dist:optimized": "grunt svgmin",
-  "dist:js": "node scripts/generateConstants.js dist/optimized/ dist/js/",
   "dist:sprite": "grunt svgstore",
   "docs": "grunt preprocess",
   "build": "yarn run dist:svg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:js && yarn run dist:sprite && yarn run docs",
