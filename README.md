@@ -41,6 +41,12 @@ Each platform (web, iOS, Android) has its own page in an icon sketch file. Each 
 normal and "small" icon variants. We use this information hierarchy to support different shapes based
 on platform or variant.
 
+#### SVG conventions
+- Icons should be filled with #000000 at 100% opacity
+- Icons should be compound paths - these are easier to create in Adobe Illustrator
+- The icon path should not contain a stroke
+- If it's not an icon (e.g.: Meetup script logotype), send it directly to the engineer
+
 **Sketch file structure**
 ```
 <file.sketch>
