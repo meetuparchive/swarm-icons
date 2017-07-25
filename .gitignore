@@ -3,6 +3,7 @@
 .grunt
 
 .DS_Store
+src/**/.DS_Store
 
 npm-debug.log
 
