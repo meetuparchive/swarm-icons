@@ -12,6 +12,7 @@ const SRC_DIR = process.argv[2];
 const DEST_DIR = process.argv[3];
 
 const iconNames = fs.readdirSync(SRC_DIR)
+	.filter(f => f.includes('.sketch'))    // take only sketch files
 	.filter(f => !f.includes('native'))    // files prefixed with `native` omit web artboards
 	.map(f => f.replace('.sketch', ''));   // take the shape name only
 
