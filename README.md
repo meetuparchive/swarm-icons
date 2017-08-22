@@ -41,6 +41,12 @@ Each platform (web, iOS, Android) has its own page in an icon sketch file. Each 
 normal and "small" icon variants. We use this information hierarchy to support different shapes based
 on platform or variant.
 
+#### SVG conventions
+- Icons should be filled with #000000 at 100% opacity
+- Icons should be compound paths - these are easier to create in Adobe Illustrator
+- The icon path should not contain a stroke
+- If it's not an icon (e.g.: Meetup script logotype), send it directly to the engineer
+
 **Sketch file structure**
 ```
 <file.sketch>
@@ -87,13 +93,14 @@ on platform or variant.
 6. The PR will publish a `-beta` tag to npm
 
 #### Reviewing pull requests
+
 Use this handy checklist to review pull requests:
 
 - [ ] Was an icon deleted? If so, did we bump the _minor_ version in `Makefile`?
-- [ ] Was the entire `dist/` dir updated? If it was intentional, did we bump the _major_ version if icons were removed or renamed?
 - [ ] If the _major_ version was updated in `Makefile`, was this `README` updated with release notes?
 - [ ] Do generated file names in `dist/` match the name of the `.sketch` file committed?
 - [ ] Does the icon name make sense out of context, or is it ambiguous?
+- [ ] Do the generated distributions fit the criteria listed [here](https://github.com/meetup/swarm-icons/wiki/Reviewing-icon-pull-requests)?
 
 #### Releases
 This package uses semver versioning to tag releases, although the patch version
