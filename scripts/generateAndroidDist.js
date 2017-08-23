@@ -81,19 +81,22 @@ const toAndroidSnakeCase = iconName => iconName
 const vectorDrawableFromSVG = (svgFile, destination) => {
 	const parser = new xml2js.Parser(PARSER_OPTIONS);
 
-	console.warn('\n--------------SVG INPUT-------------------\n', `${svgFile}\n\n`);
+	// UNCOMMENT BELOW FOR DEBUGGING
+	// console.warn('\n--------------SVG INPUT-------------------\n', `${svgFile}\n\n`);
 
 	parser.parseString(svgFile, (err, data) => {
 		if (err) throw new Error(`xml2js parse error:\n${err}`);
 
-		console.warn('\n\n--------------PARSED DATA----------------------\n', JSON.stringify(data, null, 2));
+		// UNCOMMENT BELOW FOR DEBUGGING
+		// console.warn('\n\n--------------PARSED DATA----------------------\n', JSON.stringify(data, null, 2));
 
 		const result = Mustache.render(TEMPLATE, {
 			iconName: toAndroidSnakeCase(data.title),
-			iconPath: data.path.D
+			iconPath: data.g.g.path.D
 		});
 
-		console.warn('\n\n--------------OUTPUT----------------------\n', result);
+		// UNCOMMENT BELOW FOR DEBUGGING
+		// console.warn('\n\n--------------OUTPUT----------------------\n', result);
 		fs.writeFileSync(`${DEST_DIR}/${toAndroidSnakeCase(data.title)}.xml`, result);
 	});
 };
