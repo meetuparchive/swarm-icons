@@ -90,10 +90,11 @@ const vectorDrawableFromSVG = (svgFile, destination) => {
 
 		const result = Mustache.render(TEMPLATE, {
 			iconName: toAndroidSnakeCase(data.title),
-			iconPath: data.g.g.path.D
+			iconPath: data.path.D
 		});
 
 		console.warn('\n\n--------------OUTPUT----------------------\n', result);
+		fs.writeFileSync(`${DEST_DIR}/${toAndroidSnakeCase(data.title)}.xml`, result);
 	});
 };
 
