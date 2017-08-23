@@ -7,7 +7,7 @@ const exec = require('child_process').exec;
  *
  * <src dir path> - location of sketch files
  * <dest dir path> - location to export artboards
- * <platform> - must be one of: 'ios', 'web', 'android'
+ * <platform> - must be one of: 'ios', 'web'
  * <export format> - must be one of: 'svg', 'pdf'
  *
  * Usage:
@@ -82,7 +82,7 @@ const diffToArray = stdout => stdout
 // M - modified
 // T - type (mode) change
 exec(
-	`ls ${SRC_DIR}`,
+	`git diff master --diff-filter=ACMT --name-only ${SRC_DIR}`,
 	(error, result) => {
 		if (error !== null) throw new Error(`exec error: ${error}`);
 
