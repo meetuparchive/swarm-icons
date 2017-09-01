@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-right</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="arrow-right" fill="#000000">
+            <path d="M25.00025,13 L5.41425,13 L13.70725,4.707 C14.09825,4.316 14.09825,3.684 13.70725,3.293 C13.31625,2.902 12.68425,2.902 12.29325,3.293 L2.29425,13.292 C2.20225,13.384 2.12825,13.495 2.07725,13.618 C1.97625,13.862 1.97625,14.138 2.07725,14.382 C2.12825,14.505 2.20225,14.616 2.29425,14.708 L12.29325,24.707 C12.48825,24.902 12.74425,25 13.00025,25 C13.25625,25 13.51225,24.902 13.70725,24.707 C14.09825,24.316 14.09825,23.684 13.70725,23.293 L5.41425,15 L25.00025,15 C25.55325,15 26.00025,14.553 26.00025,14 C26.00025,13.447 25.55325,13 25.00025,13" id="Fill-1" transform="translate(14.000875, 13.999875) scale(-1, 1) translate(-14.000875, -13.999875) "></path>
+        </g>
+    </g>
+</svg>
