@@ -45,6 +45,8 @@ exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
 
 			const itemsOption = getArtboardIds(result, platform);
 
+			console.log('itemsOption: ', itemsOption);
+
 			// Run the export command with the list of arboards
 			// for the given file.
 			//
