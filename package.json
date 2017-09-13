@@ -12,6 +12,7 @@
   "dist:js": "node scripts/generateConstants.js src/sketch dist/js/",
   "dist:optimized": "grunt svgmin",
   "dist:sprite": "grunt svgstore",
+  "test": "echo no tests found",
   "docs": "grunt preprocess",
   "build": "yarn run dist:svg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:js && yarn run dist:sprite && yarn run docs",
   "publish-docs": "yarn run build && grunt gh-pages"

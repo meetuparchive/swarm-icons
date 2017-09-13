@@ -44,11 +44,11 @@ after_script:
     git push --tags git@github.com:$TRAVIS_REPO_SLUG.git &&
     npm publish --tag $NPM_TAG
 
-deploy:
-   provider: pages
-   skip_cleanup: true
-   github_token: $GITHUB_TOKEN
-   local_dir: $TRAVIS_BUILD_DIR/doc/build
-   on:
-      branch: master
+# deploy:
+#    provider: pages
+#    skip_cleanup: true
+#    github_token: $GITHUB_TOKEN
+#    local_dir: $TRAVIS_BUILD_DIR/doc/build
+#    on:
+#       branch: master
 
