@@ -24,7 +24,7 @@
  "devDependencies": {
   "@alrra/travis-scripts": "^3.0.1",
   "grunt": "~0.4.5",
-  "grunt-cli": "",
+  "grunt-cli": "^1.2.0",
   "grunt-contrib-clean": "0.6.0",
   "grunt-gh-pages": "0.10.0",
   "grunt-preprocess": "5.1.0",
