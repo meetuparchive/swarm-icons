@@ -27,6 +27,7 @@ after_script:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
   - $(npm bin)/set-up-ssh --key "$encrypted_c029000ceefd_key" --iv "$encrypted_c029000ceefd_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
+  - yarn run build  
   - >
     [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ] &&
     export GIT_TAG=$(make version) ||
