@@ -1,6 +1,6 @@
 {
  "name": "swarm-icons",
- "version": "0.0.0",
+ "version": "1.3.0",
  "description": "Icons for Swarm Design System",
  "directories": {
   "doc": "docs/build",
