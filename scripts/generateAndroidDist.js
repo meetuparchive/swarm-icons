@@ -88,7 +88,7 @@ const vectorDrawableFromSVG = (svgFile, destination) => {
 		if (err) throw new Error(`xml2js parse error:\n${err}`);
 
 		// UNCOMMENT BELOW FOR DEBUGGING
-		// console.warn('\n\n--------------PARSED DATA----------------------\n', JSON.stringify(data, null, 2));
+		console.warn('\n\n--------------PARSED DATA----------------------\n', JSON.stringify(data, null, 2));
 
 		const result = Mustache.render(TEMPLATE, {
 			iconName: toAndroidSnakeCase(data.title),
