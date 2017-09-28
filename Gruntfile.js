@@ -10,8 +10,10 @@ module.exports = function(grunt) {
 
 	var DIST = 'dist/',
 		DIST_JS = `${DIST}js/`,
-		DIST_SVG = `${DIST}svg/`,
-		DIST_OPTIMIZED = `${DIST}optimized/`,
+		DIST_WEB_SVG = `${DIST}svg/`,
+		DIST_ANDROID_SVG = `${DIST}svg/android/`,
+		DIST_WEB_OPTIMIZED = `${DIST}optimized/`,
+		DIST_ANDROID_OPTIMIZED = `${DIST}optimized/android/`,
 		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
@@ -39,12 +41,20 @@ module.exports = function(grunt) {
 					}
 				]
 			},
-			dist: {
+			web: {
 				files: [{
 					expand: true,
-					cwd: DIST_SVG,
+					cwd: DIST_WEB_SVG,
 					src: ['**/*.svg'],
-					dest: DIST_OPTIMIZED
+					dest: DIST_WEB_OPTIMIZED
+				}]
+			},
+			android:{
+				files: [{
+					expand: true,
+					cwd: DIST_ANDROID_SVG,
+					src: ['**/*.svg'],
+					dest: DIST_ANDROID_OPTIMIZED
 				}]
 			}
 		},
@@ -59,7 +69,7 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: [`${DIST_OPTIMIZED}*.svg`],
+					src: [`${DIST_WEB_OPTIMIZED}*.svg`],
 					dest: `${DIST_SPRITE}sprite.inc`
 				}]
 			}
@@ -96,4 +106,8 @@ module.exports = function(grunt) {
 			src: ['**']
 		}
 	});
+
+	var platform = grunt.option('platform') || 'web';
+	grunt.registerTask('minifySvg', ['svgmin:' + platform]);
+
 };
