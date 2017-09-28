@@ -29,8 +29,8 @@ install:
   - yarn
   - if test ! -e $HOME/android-sdk-dl/tools.zip ; then curl -o $HOME/android-sdk-dl/tools.zip https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip ; fi
   - unzip -n $HOME/android-sdk-dl/tools.zip -d $HOME/android-sdk
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools'
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools'
+  - yes | $HOME/android-sdk/tools/bin/sdkmanager --licenses
+  - $HOME/android-sdk/tools/bin/sdkmanager 'tools' 'platform-tools' 'build-tools;26.0.2' 'platforms;android-26'
 
 before_script:
   - git diff --exit-code
