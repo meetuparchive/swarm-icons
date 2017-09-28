@@ -6,6 +6,10 @@ cache:
   yarn: true
   directories:
     - node_modules
+    - $HOME/android-sdk-dl
+    - $HOME/android-sdk
+    - $HOME/.gradle/caches
+    - $HOME/.gradle/wrapper
 
 branches:
   only:
@@ -14,15 +18,27 @@ branches:
 env:
   global:
     - CI_BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
+    - ANDROID_HOME=$HOME/android-sdk
     - secure: "Byz+cteYO+OF/GRudSxPDETAlDGSAz9TYY/z21mzykI+Kw9QNXKG/0hLyXoiGcCHzOkUxBs0wqyKrwetP+w1PXPE8hxZCENE6yRPwwXItRLNsXXSAf/15N+JiM+R7UK1950zj3zJOuC6XJj+CTwfBqBO92f39ulsqvR9YQA/MSFZnFgm5LsFnvbtD41neY2xY6siDjcXcyZ83xU7H1Kh3gcq75f0pilNRTnynyZRWD0CfWeb/bJ6HWGE0gUTnk8cz4gEWi9jqQo2aANSnpdNsc0Rv9bkR9h28Am27EV2TJW5sWJvzRcV1gTwFXXD6VgcTjhBu3RQTZ9+yg/JV8ZZen0cjBnxRAUAeHM9l8pPhxhS8ifivecphhlT2FTXaITxm7OrE+ncWMBSfDGt6bHdO8qAzptkfKDPhewEDSvWqshXRSag8Jy7/XMYgI60CTsyw/GsrBY+03CwNnJuglLNRYUVs5bFSj4eg0PpXcIBtnY94mtuKXOyHdgAKPxV400WLbZ6cR5gcyc0VQqK8S6Ga154nWPpnfYnjgJOqiWlZWQDCG6ZqXF0Adc1gAPLCvhKsffj8Ab7wncgvx3TRzEH29bERZ8NEqrENjsA1kpb0NljzK/WHqh8QLhnjbVICEF5tyEuPnfAZz7T2sTrKvVYB5P02CCicgLLHytyQe0iJwo="
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 
+install:
+  - yarn
+  - if test ! -e $HOME/android-sdk-dl/tools.zip ; then curl -o $HOME/android-sdk-dl/tools.zip https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip ; fi
+  - unzip -n $HOME/android-sdk-dl/tools.zip -d $HOME/android-sdk
+  - yes | $HOME/android-sdk/tools/bin/sdkmanager --licenses
+  - $HOME/android-sdk/tools/bin/sdkmanager 'tools' 'platform-tools' 'build-tools;26.0.2' 'platforms;android-26'
+
 before_script:
   - git diff --exit-code
-  - yarn run docs  
+  - yarn run docs
+
+script:
+  - npm test
+  - (cd dist/android && ./gradlew build)
 
 after_script:
   - git config --global user.email "builds@travis-ci.com"
@@ -45,6 +61,11 @@ after_script:
     git push --tags git@github.com:$TRAVIS_REPO_SLUG.git &&
     npm publish --tag $NPM_TAG
 
+before_cache:
+  # Do not cache a few Gradle files/directories (see https://docs.travis-ci.com/user/languages/java/#Caching)
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
 deploy:
   provider: pages
   skip_cleanup: true
@@ -52,4 +73,3 @@ deploy:
   local_dir: $TRAVIS_BUILD_DIR/doc/build
   on:
      branch: master
-
