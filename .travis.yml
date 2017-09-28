@@ -22,7 +22,11 @@ before_install:
 
 before_script:
   - git diff --exit-code
-  - yarn run docs  
+  - yarn run docs
+
+script:
+  - npm test
+  - (cd dist/android && ./gradlew build)
 
 after_script:
   - git config --global user.email "builds@travis-ci.com"
@@ -52,4 +56,3 @@ deploy:
   local_dir: $TRAVIS_BUILD_DIR/doc/build
   on:
      branch: master
-
