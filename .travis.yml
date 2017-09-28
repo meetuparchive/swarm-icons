@@ -6,10 +6,10 @@ cache:
   yarn: true
   directories:
     - node_modules
-    - android-sdk-dl
-    - android-sdk
-    - .gradle/caches
-    - .gradle/wrapper
+    - $HOME/android-sdk-dl
+    - $HOME/android-sdk
+    - $HOME/.gradle/caches
+    - $HOME/.gradle/wrapper
 
 branches:
   only:
