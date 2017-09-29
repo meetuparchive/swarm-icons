@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' && System.env.TRAVIS_PULL_REQUEST != 'false'
+final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' || System.env.TRAVIS_PULL_REQUEST != 'false'
+final VERSION_NAME = (System.env.VERSION_NAME ?: "1.0.0") + (IS_SNAPSHOT ? "-SNAPSHOT" : "")
 
 configurations {
     deployerJars
@@ -15,7 +16,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 26
         versionCode ((System.env.CI_BUILD_NUMBER ?: 1) as Integer)
-        versionName System.env.VERSION_NAME ?: "snapshot"
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -41,7 +42,7 @@ uploadArchives {
                 name "swarm-icons android"
                 groupId "com.meetup"
                 artifactId "swarm-icons-android"
-                version System.env.VERSION_NAME ?: "1.0.0-SNAPSHOT"
+                version VERSION_NAME
                 url "https://github.com/meetup/swarm-icons"
                 organization {
                     name "Meetup"
