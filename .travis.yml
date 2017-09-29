@@ -37,8 +37,9 @@ before_script:
   - yarn run docs
 
 script:
+  - export VERSION_NAME=`make version`
   - npm test
-  - (cd dist/android && VERSION_NAME=`make version` ./gradlew build icons:deploy)
+  - (cd dist/android && ./gradlew build icons:deploy)
 
 after_script:
   - git config --global user.email "builds@travis-ci.com"
