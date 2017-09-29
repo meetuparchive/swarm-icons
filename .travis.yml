@@ -38,7 +38,7 @@ before_script:
 
 script:
   - npm test
-  - (cd dist/android && ./gradlew build)
+  - (cd dist/android && VERSION_NAME=`make version` ./gradlew build icons:deploy)
 
 after_script:
   - git config --global user.email "builds@travis-ci.com"
