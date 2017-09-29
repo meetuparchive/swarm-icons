@@ -9,7 +9,7 @@ android {
         applicationId "com.meetup.swarmicons"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode System.env.CI_BUILD_NUMBER ?: 1
+        versionCode (System.env.CI_BUILD_NUMBER ?: 1) as int
         versionName System.env.VERSION_NAME ?: "snapshot"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
