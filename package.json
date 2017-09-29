@@ -11,7 +11,7 @@
   "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
   "dist:js": "node scripts/generateConstants.js src/sketch dist/js/",
   "dist:androidSvg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/android/ android svg",
-  "dist:xml": "node scripts/generateAndroidDist.js dist/svg/android/ dist/xml",
+  "dist:xml": "node scripts/generateAndroidDist.js dist/svg/android/ dist/android/icons/src/main/res/drawable",
   "dist:optimized": "grunt minifySvg --platform=web",
   "dist:optimizedAndroid": "grunt minifySvg --platform=android",
   "dist:sprite": "grunt svgstore",
