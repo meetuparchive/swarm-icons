@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -11,8 +9,8 @@ android {
         applicationId "com.meetup.swarmicons"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode ((System.env.CI_BUILD_NUMBER ?: 1) as Integer)
+        versionName System.env.VERSION_NAME ?: "snapshot"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

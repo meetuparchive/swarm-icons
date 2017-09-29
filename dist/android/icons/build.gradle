@@ -1,4 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' || System.env.TRAVIS_PULL_REQUEST != 'false'
+final VERSION_NAME = (System.env.VERSION_NAME ?: "1.0.0") + (IS_SNAPSHOT ? "-SNAPSHOT" : "")
+
+configurations {
+    deployerJars
+}
 
 android {
     compileSdkVersion 26
@@ -7,8 +15,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode ((System.env.CI_BUILD_NUMBER ?: 1) as Integer)
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -22,5 +30,30 @@ android {
 }
 
 dependencies {
-    // none
+    deployerJars "org.apache.maven.wagon:wagon-http:2.2"
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "https://nexus.blt.meetup.com/content/repositories/${IS_SNAPSHOT ? 'snapshots' : 'releases'}") {
+            authentication(userName: "deployment", password: System.env.NEXUS_DEPLOY_PASSWD)
+            pom.project {
+                name "swarm-icons android"
+                groupId "com.meetup"
+                artifactId "swarm-icons-android"
+                version VERSION_NAME
+                url "https://github.com/meetup/swarm-icons"
+                organization {
+                    name "Meetup"
+                    url "https://www.meetup.com/"
+                }
+                scm {
+                    url "https://github.com/meetup/swarm-icons"
+                    connection 'scm:git:git://github.com/meetup/swarm-icons.git'
+                    developerConnection 'scm:git:git@github.com:meetup/swarm-icons.git'
+                }
+            }
+        }
+    }
 }
