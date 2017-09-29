@@ -39,7 +39,7 @@ before_script:
 script:
   - export VERSION_NAME=`make version`
   - npm test
-  - (cd dist/android && ./gradlew build icons:upload)
+  - (cd dist/android && ./gradlew build icons:uploadArchives)
 
 after_script:
   - git config --global user.email "builds@travis-ci.com"
