@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' && System.env.TRAVIS_PULL_REQUEST != 'false'
+final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' || System.env.TRAVIS_PULL_REQUEST != 'false'
 
 configurations {
     deployerJars
@@ -41,7 +41,7 @@ uploadArchives {
                 name "swarm-icons android"
                 groupId "com.meetup"
                 artifactId "swarm-icons-android"
-                version System.env.VERSION_NAME ?: "1.0.0-SNAPSHOT"
+                version (System.env.VERSION_NAME ?: "1.0.0") + (IS_SNAPSHOT ? "-SNAPSHOT" : "")
                 url "https://github.com/meetup/swarm-icons"
                 organization {
                     name "Meetup"
