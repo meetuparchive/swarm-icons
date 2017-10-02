@@ -92,7 +92,7 @@ const vectorDrawableFromSVG = (svgFile, destination) => {
 
 		const result = Mustache.render(TEMPLATE, {
 			iconName: toAndroidSnakeCase(data.title),
-			iconPath: data.g.g.path.D,
+			iconPath: data.path.D,
 			iconWidth: parseInt(data.WIDTH, 10),
 			iconHeight: parseInt(data.HEIGHT, 10)
 		});
