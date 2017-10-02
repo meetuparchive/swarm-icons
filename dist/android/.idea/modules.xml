@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/app/android-app.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/app/android-app.iml" />
-      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/icons/android-icons.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/icons/android-icons.iml" />
-      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/dist-SwarmIcons.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/dist-SwarmIcons.iml" />
+      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/SwarmIcons.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/SwarmIcons.iml" />
+      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/app/app.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/app/app.iml" />
+      <module fileurl="file:///usr/local/git_repo/swarm-icons/dist/android/icons/icons.iml" filepath="/usr/local/git_repo/swarm-icons/dist/android/icons/icons.iml" />
     </modules>
   </component>
 </project>

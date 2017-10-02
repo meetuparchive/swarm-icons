@@ -1,8 +1,37 @@
+import com.android.ide.common.vectordrawable.Svg2Vector
+import groovy.io.FileType
+
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
 final IS_SNAPSHOT = System.env.TRAVIS_BRANCH != 'master' || System.env.TRAVIS_PULL_REQUEST != 'false'
 final VERSION_NAME = (System.env.VERSION_NAME ?: "1.0.0") + (IS_SNAPSHOT ? "-SNAPSHOT" : "")
+
+class Svg2VectorTask extends DefaultTask {
+    @InputDirectory
+    public File inputDir
+
+    @OutputDirectory
+    public File output
+
+    @TaskAction
+    void svgToVector() {
+        if (!inputDir.isDirectory()) {
+            throw new IllegalArgumentException("input directory must exist")
+        }
+
+        output.mkdirs()
+
+        inputDir.eachFileMatch(FileType.FILES, ~/.*\.svg$/) {
+            def outputfile = new File(output, "ic_" + it.name.replace('-','_').replaceAll(/\.svg$/, ".xml"))
+            FileOutputStream out = new FileOutputStream(outputfile)
+            String error = Svg2Vector.parseSvgToXml(it, out)
+            if (error != null && !error.empty)
+                throw new IllegalStateException("${outputfile}: ${error}")
+            out.close()
+        }
+    }
+}
 
 configurations {
     deployerJars
@@ -27,6 +56,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+android.libraryVariants.all { variant ->
+    def svgtask = project.tasks.create("svgToVector${variant.name.capitalize()}", Svg2VectorTask)
+    def dir = new File("$buildDir/generated/res/svg2vector/${variant.dirName}")
+    svgtask.configure {
+        inputDir = file("../../optimized/android")
+        output = new File(dir, "drawable")
+    }
+    variant.registerResGeneratingTask(svgtask, dir)
 }
 
 dependencies {
