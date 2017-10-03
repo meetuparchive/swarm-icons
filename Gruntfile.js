@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 		]
 	};
 
-	var svgminOptionsAndroid = svgminOptions['plugins'].concat([{ convertPathData: { floatPrecision: 2, makeArcs: false } }]);
+	var svgminOptionsAndroid = {plugins: svgminOptions['plugins'].concat([{ convertPathData: { floatPrecision: 2, makeArcs: false } }])};
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
