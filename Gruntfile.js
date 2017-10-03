@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-preprocess');
@@ -19,7 +21,7 @@ module.exports = function(grunt) {
 		DOC_DEST = 'doc/build/';
 
 
-	grunt.initConfig({
+	var configOpts = {
 		package: grunt.file.readJSON('package.json'),
 
 		//
@@ -45,7 +47,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: DIST_WEB_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_WEB_OPTIMIZED
 				}]
 			},
@@ -53,7 +55,7 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: DIST_ANDROID_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_ANDROID_OPTIMIZED
 				}]
 			}
@@ -105,7 +107,13 @@ module.exports = function(grunt) {
 			},
 			src: ['**']
 		}
-	});
+	};
+
+	configOpts.svgmin.android.options = _.merge({}, configOpts.svgmin.options, { plugins: _.concat(configOpts.svgmin.options.plugins, [
+		{ convertPathData: { floatPrecision: 2, makeArcs: false } }
+	])});
+
+	grunt.initConfig(configOpts);
 
 	var platform = grunt.option('platform') || 'web';
 	grunt.registerTask('minifySvg', ['svgmin:' + platform]);
