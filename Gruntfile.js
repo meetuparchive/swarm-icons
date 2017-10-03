@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 	};
 
 	var svgminOptionsAndroid = svgminOptions['plugins'].push({ convertPathData: { floatPrecision: 2, makeArcs: false } });
-
+	console.log(svgminOptionsAndroid);
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
