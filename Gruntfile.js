@@ -33,6 +33,8 @@ module.exports = function(grunt) {
 		]
 	};
 
+	var svgminOptionsAndroid = svgminOptions['plugins'].push({ convertPathData: { floatPrecision: 2, makeArcs: false } });
+
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
@@ -42,20 +44,21 @@ module.exports = function(grunt) {
 		// (writes to "optimized" distribution)
 		//
 		'svgmin': {
-			options: svgminOptions,
 			web: {
+				options: svgminOptions,
 				files: [{
 					expand: true,
 					cwd: DIST_WEB_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_WEB_OPTIMIZED
 				}]
 			},
 			android:{
+				options: svgminOptionsAndroid,
 				files: [{
 					expand: true,
 					cwd: DIST_ANDROID_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_ANDROID_OPTIMIZED
 				}]
 			}
