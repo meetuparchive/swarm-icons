@@ -18,6 +18,22 @@ module.exports = function(grunt) {
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
 
+	var svgminOptions = {
+		plugins: [
+			{ removeDesc: true },
+			{ collapseGroups: true },
+			{ removeEmptyAttrs: true },
+			{ removeUselessStrokeAndFill: true },
+			{ removeViewbox: false },
+			{
+				removeAttrs: {
+					attrs: ['fill']
+				}
+			}
+		]
+	};
+
+	var svgminOptionsAndroid = {plugins: svgminOptions['plugins'].concat([{ convertPathData: { floatPrecision: 2, makeArcs: false } }])};
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
@@ -27,33 +43,21 @@ module.exports = function(grunt) {
 		// (writes to "optimized" distribution)
 		//
 		'svgmin': {
-			options: {
-				plugins: [
-					{ removeDesc: true },
-					{ collapseGroups: true },
-					{ removeEmptyAttrs: true },
-					{ removeUselessStrokeAndFill: true },
-					{ removeViewbox: false },
-					{
-						removeAttrs: {
-							attrs: ['fill']
-						}
-					}
-				]
-			},
 			web: {
+				options: svgminOptions,
 				files: [{
 					expand: true,
 					cwd: DIST_WEB_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_WEB_OPTIMIZED
 				}]
 			},
 			android:{
+				options: svgminOptionsAndroid,
 				files: [{
 					expand: true,
 					cwd: DIST_ANDROID_SVG,
-					src: ['**/*.svg'],
+					src: ['*.svg'],
 					dest: DIST_ANDROID_OPTIMIZED
 				}]
 			}
