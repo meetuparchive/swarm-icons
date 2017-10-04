@@ -18,21 +18,6 @@ module.exports = function(grunt) {
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
 
-	var svgminOptions = {
-		plugins: [
-			{ removeDesc: true },
-			{ collapseGroups: true },
-			{ removeEmptyAttrs: true },
-			{ removeUselessStrokeAndFill: true },
-			{ removeViewbox: false },
-			{
-				removeAttrs: {
-					attrs: ['fill']
-				}
-			}
-		]
-	};
-
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
@@ -42,7 +27,20 @@ module.exports = function(grunt) {
 		// (writes to "optimized" distribution)
 		//
 		'svgmin': {
-			options: svgminOptions,
+			options: {
+				plugins: [
+					{ removeDesc: true },
+					{ collapseGroups: true },
+					{ removeEmptyAttrs: true },
+					{ removeUselessStrokeAndFill: true },
+					{ removeViewbox: false },
+					{
+						removeAttrs: {
+							attrs: ['fill']
+						}
+					}
+				]
+			},
 			web: {
 				files: [{
 					expand: true,
