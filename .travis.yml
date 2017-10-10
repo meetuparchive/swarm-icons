@@ -1,4 +1,4 @@
-sudo: true
+sudo: false
 language: node_js
 node_js:
   - "7.8"
@@ -24,9 +24,6 @@ env:
 before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-  - wget https://www.sketchapp.com/download/sketch.zip
-  - unzip sketch.zip
-  - Sketch.app/Contents/Resources/sketchtool/install.sh
 
 install:
   - yarn
@@ -36,11 +33,8 @@ install:
   - $HOME/android-sdk/tools/bin/sdkmanager 'tools' 'platform-tools' 'build-tools;26.0.2' 'platforms;android-26'
 
 before_script:
-  #- brew tap caskroom/cask # Download Cask
-  #- brew install brew-cask # Install Cask
-  #- brew cask install sketch-tool # Install Sketchtool
-  - yarn run build
   - git diff --exit-code
+  - yarn run docs
 
 script:
   - export VERSION_NAME=`make version`
