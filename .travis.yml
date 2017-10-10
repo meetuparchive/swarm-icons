@@ -37,7 +37,7 @@ install:
 
 before_script:
   - git diff --exit-code
-  - yarn run docs
+  - yarn run build
 
 script:
   - export VERSION_NAME=`make version`
