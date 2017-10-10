@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - "7.8"
@@ -24,6 +24,9 @@ env:
 before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  - wget https://www.sketchapp.com/download/sketch.zip
+  - unzip sketch.zip
+  - Sketch.app/Contents/Resources/sketchtool/install.sh
 
 install:
   - yarn
