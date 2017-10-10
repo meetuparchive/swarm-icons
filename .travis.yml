@@ -36,9 +36,9 @@ before_script:
   #- wget https://www.sketchapp.com/download/sketch.zip
   #- unzip sketch.zip
   #- Sketch.app/Contents/Resources/sketchtool/install.sh
-  - brew tap caskroom/cask # Download Cask
-  - brew install brew-cask # Install Cask
-  - brew cask install sketch-tool # Install Sketchtool
+  #- brew tap caskroom/cask # Download Cask
+  #- brew install brew-cask # Install Cask
+  #- brew cask install sketch-tool # Install Sketchtool
   - yarn run build
   - git diff --exit-code
 
