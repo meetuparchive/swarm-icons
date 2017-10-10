@@ -33,9 +33,17 @@ install:
   - $HOME/android-sdk/tools/bin/sdkmanager 'tools' 'platform-tools' 'build-tools;26.0.2' 'platforms;android-26'
 
 before_script:
-  - wget https://www.sketchapp.com/download/sketch.zip
-  - unzip sketch.zip
-  - Sketch.app/Contents/Resources/sketchtool/install.sh
+  # - wget https://www.sketchapp.com/download/sketch.zip
+  # - unzip sketch.zip
+  # - Sketch.app/Contents/Resources/sketchtool/install.sh
+  - mkdir temp
+  - cd temp
+  - curl -L -o sketch.zip http://www.sketchapp.com/download/sketch.zip
+  - unzip -q sketch.zip
+  - cd Sketch.app/Contents/Resources/sketchtool/
+  - sh ./install.sh
+  - cd ../../../../../
+  - rm -Rf temp
   - yarn run build
   - git diff --exit-code
 
