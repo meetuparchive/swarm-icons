@@ -13,8 +13,24 @@ android {
         versionName System.env.VERSION_NAME ?: "snapshot"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        prod {
+            storeFile file("${System.getProperty("user.home")}/swarmicons-keys.jks")
+            keyAlias 'swarmicons'
+            if (project.hasProperty('keystorePass') && project.hasProperty('swarmKeyPass')) {
+                storePassword keystorePass
+                keyPassword swarmKeyPass
+            } else if (System.getenv("KEYSTORE_PASS") != null && System.getenv("SWARM_KEY_PASS")) {
+                storePassword System.getenv("KEYSTORE_PASS")
+                keyPassword System.getenv("SWARM_KEY_PASS")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.prod
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
