@@ -1,5 +1,4 @@
-// const exec = require('child_process').exec;
-const sketchtool = require('sketchtool');
+const exec = require('child_process').exec;
 
 /**
  * @param {JSON} artboardsJSON - artboards JSON metadata from sketch file
@@ -28,8 +27,8 @@ const getArtboardIds = (artboardsJSON, platform) => {
  * @param {String} format - `svg` or `pdf`
  */
 exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
-	// const exportCmdBase = `sketchtool export artboards ${filePath}`;
-	// const exportCmdOptions = `--scales=1.0 --output=${destination} --formats=${format}`;
+	const exportCmdBase = `sketchtool export artboards ${filePath}`;
+	const exportCmdOptions = `--scales=1.0 --output=${destination} --formats=${format}`;
 
 	// First, list the artboards in the given file.
 	// Sketch can contain any number of artbords in one file.
@@ -38,48 +37,27 @@ exports.exportArtboardsFromFile = (filePath, destination, platform, format) => {
 	// icon. For example, `location.sketch` contains:
 	//    - "location" arboard
 	//    - "location--small" artboard
-	sketchtool(`list artboards ${filePath}`, function (error, stdout, stderr) {
-		// callback
-		if (error !== null) throw new Error(`exec error: ${error}`);
+	exec(
+		`sketchtool list artboards ${filePath}`,
+		(error, result) => {
 
-		const itemsOption = getArtboardIds(stdout, platform);
+			if (error !== null) throw new Error(`exec error: ${error}`);
 
-		// Run the export command with the list of arboards
-		// for the given file.
-		//
-		// `sketchtool` will generate an export file for each artboard.
-		if (itemsOption) {
+			const itemsOption = getArtboardIds(result, platform);
 
-			sketchtool(`export artboards ${filePath} --items=${itemsOption} --scales=1.0 --output=${destination} --formats=${format}`, function (error, stdout, stderr) {
-
-				if (error !== null) throw new Error(`exec error: ${error}`);
-				console.info(stdout);
-
-			});
-
+			// Run the export command with the list of arboards
+			// for the given file.
+			//
+			// `sketchtool` will generate an export file for each artboard.
+			if (itemsOption) {
+				exec(
+					`${exportCmdBase} ${exportCmdOptions} --items=${itemsOption}`,
+					(error, result) => {
+						if (error !== null) throw new Error(`exec error: ${error}`);
+						console.info(result);
+					}
+				);
+			}
 		}
-	});
-	// exec(
-	// 	`sketchtool list artboards ${filePath}`,
-	// 	(error, result) => {
-
-	// 		if (error !== null) throw new Error(`exec error: ${error}`);
-
-	// 		const itemsOption = getArtboardIds(result, platform);
-
-	// 		// Run the export command with the list of arboards
-	// 		// for the given file.
-	// 		//
-	// 		// `sketchtool` will generate an export file for each artboard.
-	// 		if (itemsOption) {
-	// 			exec(
-	// 				`${exportCmdBase} ${exportCmdOptions} --items=${itemsOption}`,
-	// 				(error, result) => {
-	// 					if (error !== null) throw new Error(`exec error: ${error}`);
-	// 					console.info(result);
-	// 				}
-	// 			);
-	// 		}
-	// 	}
-	// );
+	);
 };
