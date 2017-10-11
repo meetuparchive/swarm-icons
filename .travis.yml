@@ -23,6 +23,7 @@ env:
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_android_key -iv $encrypted_android_iv -in '.travis/swarmicons-keys.jks.enc' -out $HOME/swarmicons-keys.jks -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
 
 install:
@@ -31,6 +32,8 @@ install:
   - unzip -n $HOME/android-sdk-dl/tools.zip -d $HOME/android-sdk
   - yes | $HOME/android-sdk/tools/bin/sdkmanager --licenses
   - $HOME/android-sdk/tools/bin/sdkmanager 'tools' 'platform-tools' 'build-tools;26.0.2' 'platforms;android-26'
+  - curl -o $HOME/hub.tgz -L https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz
+  - tar -C ~ -xf $HOME/hub.tgz
 
 before_script:
   - git diff --exit-code
@@ -55,11 +58,13 @@ after_script:
     export NPM_TAG=beta
   - echo "GIT_TAG=$GIT_TAG"
   - echo "NPM_TAG=$NPM_TAG"
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then PRERELEASE="-p"; fi
   - >
     [ "${TRAVIS_BRANCH}" != "master" ] &&
     echo "skipping versioning" ||
     npm version $GIT_TAG -m "Version $GIT_TAG built by Travis CI - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_JOB_ID" &&
     git push --tags git@github.com:$TRAVIS_REPO_SLUG.git &&
+    $HOME/hub-linux-amd64-2.3.0-pre10/bin/hub release create "v$GIT_TAG" $PRERELEASE -a dist/android/app/build/outputs/apk/release/app-release.apk -m "release $GIT_TAG" &&
     npm publish --tag $NPM_TAG
 
 before_cache:
