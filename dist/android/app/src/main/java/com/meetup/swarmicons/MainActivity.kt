@@ -9,8 +9,6 @@ import android.support.v7.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
-    lateinit internal var adapter : IconAdapter
-
     @get:ColorInt val foundationRed by lazy(LazyThreadSafetyMode.NONE) {
         ContextCompat.getColor(this, R.color.foundation_red)
     }
@@ -19,13 +17,16 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = IconAdapter(this)
+        val adapter = IconAdapter(this)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.layoutManager = GridLayoutManager(this, preferredColumnCount())
         recyclerView.adapter = adapter
         redCheckBox.setOnCheckedChangeListener { _, b ->
             adapter.color = if (b) foundationRed else Color.BLACK
         }
     }
+
+    private fun preferredColumnCount() : Int =
+        resources.run { displayMetrics.widthPixels / getDimensionPixelSize(R.dimen.min_column_width) }
 }
 
