@@ -1,6 +1,7 @@
 package com.meetup.swarmicons
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.graphics.Color
 import android.os.Bundle
 import android.support.annotation.ColorInt
@@ -23,6 +24,10 @@ class MainActivity : Activity() {
         recyclerView.adapter = adapter
         redCheckBox.setOnCheckedChangeListener { _, b ->
             adapter.color = if (b) foundationRed else Color.BLACK
+        }
+        adapter.itemClickListener = { info, view, transitionName ->
+            val opts = ActivityOptions.makeSceneTransitionAnimation(this, view, transitionName)
+            startActivity(DetailActivity.intent(this, info), opts.toBundle())
         }
     }
 
