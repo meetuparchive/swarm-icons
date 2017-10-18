@@ -1,4 +1,4 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - "7.8"
@@ -25,6 +25,9 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_c029000ceefd_key -iv $encrypted_c029000ceefd_iv -in '.travis/github_deploy_key.enc' -out github_deploy_key -d
   - openssl aes-256-cbc -K $encrypted_android_key -iv $encrypted_android_iv -in '.travis/swarmicons-keys.jks.enc' -out $HOME/swarmicons-keys.jks -d
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
+  - wget https://www.sketchapp.com/download/sketch.zip
+  - unzip sketch.zip
+  - Sketch.app/Contents/Resources/sketchtool/install.sh
 
 install:
   - yarn
@@ -37,7 +40,7 @@ install:
 
 before_script:
   - git diff --exit-code
-  - yarn run docs
+  - yarn run build
 
 script:
   - export VERSION_NAME=`make version`
