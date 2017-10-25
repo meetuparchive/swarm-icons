@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>native-nav-profile</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="native-nav-profile" fill="#010202">
+            <path d="M18,22 L6,22 C4.346,22 3,20.654 3,19 C3,16.243 5.243,14 8,14 L16,14 C18.757,14 21,16.243 21,19 C21,20.654 19.654,22 18,22 M16,12 L8,12 C4.141,12 1,15.141 1,19 C1,21.757 3.243,24 6,24 L18,24 C20.757,24 23,21.757 23,19 C23,15.141 19.859,12 16,12 M12,2 C13.654,2 15,3.346 15,5 C15,6.654 13.654,8 12,8 C10.346,8 9,6.654 9,5 C9,3.346 10.346,2 12,2 M12,10 C14.757,10 17,7.757 17,5 C17,2.243 14.757,0 12,0 C9.243,0 7,2.243 7,5 C7,7.757 9.243,10 12,10" id="Page-1"></path>
+        </g>
+    </g>
+</svg>
