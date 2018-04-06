@@ -136,6 +136,9 @@ task                      | description
 
 # Release notes
 
+## `v2.3.0`
+- removed `overflow-horizontal`
+
 ## `v1.3.0`
 - added `chevron-down`
 - renamed sketch files to match base artboard names
