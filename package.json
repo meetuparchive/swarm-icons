@@ -1,42 +1,42 @@
 {
- "name": "swarm-icons",
- "version": "1.3.0",
- "description": "Icons for Swarm Design System",
- "directories": {
-  "doc": "docs/build",
-  "dist": "dist"
- },
- "scripts": {
-  "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
-  "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
-  "dist:js": "node scripts/generateConstants.js src/sketch dist/js/",
-  "dist:androidSvg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/android/ android svg",
-  "dist:optimized": "grunt minifySvg --platform=web",
-  "dist:optimizedAndroid": "grunt minifySvg --platform=android",
-  "dist:sprite": "grunt svgstore",
-  "test": "echo no tests found",
-  "docs": "grunt preprocess",
-  "build": "yarn run dist:svg && yarn run dist:androidSvg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:optimizedAndroid && yarn run dist:js && yarn run dist:sprite && yarn run docs",
-  "publish-docs": "yarn run build && grunt gh-pages"
- },
- "repository": {
-  "type": "git",
-  "url": "git://github.com/meetup/swarm-icons.git"
- },
- "devDependencies": {
-  "@alrra/travis-scripts": "^3.0.1",
-  "grunt": "~0.4.5",
-  "grunt-cli": "^1.2.0",
-  "grunt-contrib-clean": "0.6.0",
-  "grunt-gh-pages": "0.10.0",
-  "grunt-preprocess": "5.1.0",
-  "grunt-svgmin": "4.0.0",
-  "grunt-svgstore": "1.0.0"
- },
- "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT",
- "dependencies": {
-  "mustache": "^2.3.0",
-  "xml2js": "^0.4.17"
- }
+  "name": "swarm-icons",
+  "version": "1.3.297-beta",
+  "description": "Icons for Swarm Design System",
+  "directories": {
+    "doc": "docs/build",
+    "dist": "dist"
+  },
+  "scripts": {
+    "dist:svg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/ web svg",
+    "dist:pdf": "node scripts/exportFromSketch.js src/sketch/ dist/pdf/ ios pdf",
+    "dist:js": "node scripts/generateConstants.js src/sketch dist/js/",
+    "dist:androidSvg": "node scripts/exportFromSketch.js src/sketch/ dist/svg/android/ android svg",
+    "dist:optimized": "grunt minifySvg --platform=web",
+    "dist:optimizedAndroid": "grunt minifySvg --platform=android",
+    "dist:sprite": "grunt svgstore",
+    "test": "echo no tests found",
+    "docs": "grunt preprocess",
+    "build": "yarn run dist:svg && yarn run dist:androidSvg && yarn run dist:pdf && yarn run dist:optimized && yarn run dist:optimizedAndroid && yarn run dist:js && yarn run dist:sprite && yarn run docs",
+    "publish-docs": "yarn run build && grunt gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meetup/swarm-icons.git"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-preprocess": "5.1.0",
+    "grunt-svgmin": "4.0.0",
+    "grunt-svgstore": "1.0.0"
+  },
+  "author": "adamd@meetup.com, mikep@meetup.com",
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "^2.3.0",
+    "xml2js": "^0.4.17"
+  }
 }
