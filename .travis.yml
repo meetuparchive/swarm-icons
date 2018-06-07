@@ -63,13 +63,7 @@ after_script:
     echo "skipping versioning" ||
     npm version $GIT_TAG -m "Version $GIT_TAG built by Travis CI - https://travis-ci.com/$TRAVIS_REPO_SLUG/builds/$TRAVIS_JOB_ID" &&
     git push --tags git@github.com:$TRAVIS_REPO_SLUG.git &&
-    $HOME/hub-linux-amd64-2.3.0-pre10/bin/hub release create "v$GIT_TAG" $PRERELEASE -a dist/android/app/build/outputs/apk/release/app-release.apk -m "release $GIT_TAG" &&
     npm publish --tag $NPM_TAG
-
-before_cache:
-  # Do not cache a few Gradle files/directories (see https://docs.travis-ci.com/user/languages/java/#Caching)
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 deploy:
   provider: pages
