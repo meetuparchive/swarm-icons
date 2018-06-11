@@ -1,4 +1,9 @@
 
+# [2.3.310]
+
+- **Build Change** Android dist Travis build disabled to unblock build pipeline.
+  Ticket to fix the Travis build is [here](https://meetup.atlassian.net/browse/ICONS-3);
+
 # [2.0]
 
 - **BREAKING CHANGE** Removed `overflow-horizontal` icon shape.
