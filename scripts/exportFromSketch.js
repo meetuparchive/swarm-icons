@@ -74,15 +74,10 @@ const diffToArray = stdout => stdout
 
 
 //
-// only build files that have changed
+// Build all sketch files
 //
-// `--diff-filter=ACMRT`
-// A - added
-// C - copied
-// M - modified
-// T - type (mode) change
 exec(
-	`git diff master --diff-filter=ACMT --name-only ${SRC_DIR}`,
+	`ls ${SRC_DIR}`,
 	(error, result) => {
 		if (error !== null) throw new Error(`exec error: ${error}`);
 

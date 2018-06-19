@@ -1,6 +1,8 @@
 # [3.3]
 
 - **BREAKING CHANGE** removed `triangle-down` shape. Use `chevron-down` in its place.
+  Also changed sketch export build to build _all files_ in `src/sketch` on every build
+  to avoid complexity and bugs related to checking file status against `master`.
 
 # [2.3.310]
 

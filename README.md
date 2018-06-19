@@ -92,6 +92,11 @@ on platform or variant.
 5. Submit a pull request
 6. The PR will publish a `-beta` tag to npm
 
+#### Deleting an icon
+0. Remove the sketch file for the icon from `src/sketch`
+1. Remove all `dist/<dist>` except for `dist/js`
+2. Run the build (`yarn build`).
+
 #### Reviewing pull requests
 
 Use this handy checklist to review pull requests:
