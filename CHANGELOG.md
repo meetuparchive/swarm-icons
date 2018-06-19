@@ -1,7 +1,10 @@
+# [3.3]
+
+- **BREAKING CHANGE** removed `triangle-down` shape. Use `chevron-down` in its place.
 
 # [2.3.310]
 
-- **Build Change** Android dist Travis build disabled to unblock build pipeline.
+- **Change** Android dist Travis build disabled to unblock build pipeline.
   Ticket to fix the Travis build is [here](https://meetup.atlassian.net/browse/ICONS-3);
 
 # [2.0]

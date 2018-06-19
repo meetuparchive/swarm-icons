@@ -12,3 +12,4 @@ doc/build/*
 .temp-android/
 
 github_deploy_key
+yarn-error.log
