@@ -76,11 +76,6 @@ exec(
 
 		const filesToExport = diffToArray(result);
 
-		if (!filesToExport.length) {
-			console.info('\nNo sketch changes found, skipping build\n');
-			return;
-		}
-
 		if (!config.distributions.length) {
 			console.info('\nNo distributions found in config.json\n');
 			return;
