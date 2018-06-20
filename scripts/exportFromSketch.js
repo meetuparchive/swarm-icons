@@ -22,6 +22,9 @@ const exec = require('child_process').exec;
  * `node exportFromSketch <exportConfig.json>`
  */
 
+const config = JSON.parse(fs.readFileSync(process.argv[2]));
+const SRC_DIR = config.source;
+
 //
 // Because we `diff` against `master` to select which files to export,
 // bail out if `src/sketch/` is in dirty state.
@@ -45,9 +48,6 @@ exec(
 			}
 	}
 );
-
-const config = JSON.parse(fs.readFileSync(process.argv[2]));
-const SRC_DIR = config.source;
 
 /**
  * Uses sketchtoolUtils to export `fileNames` sketch files
