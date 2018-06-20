@@ -4,19 +4,26 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-svgstore');
 	grunt.loadNpmTasks('grunt-gh-pages');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	var SRC = 'src/',
 		SRC_SKETCH = `${SRC}sketch/`;
 
 	var DIST = 'dist/',
-		DIST_JS = `${DIST}js/`,
-		DIST_WEB_SVG = `${DIST}svg/`,
-		DIST_ANDROID_SVG = `${DIST}svg/android/`,
-		DIST_WEB_OPTIMIZED = `${DIST}optimized/`,
-		DIST_ANDROID_OPTIMIZED = `${DIST}optimized/android/`,
-		DIST_SPRITE = `${DIST}sprite/`,
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
+
+	var DIST_PATHS = {
+		DIST_JS: `${DIST}js/`,
+		DIST_WEB_SVG: `${DIST}svg/`,
+		DIST_ANDROID_SVG: `${DIST}svg/android/`,
+		DIST_WEB_OPTIMIZED: `${DIST}optimized/`,
+		DIST_ANDROID_OPTIMIZED: `${DIST}optimized/android/`,
+		DIST_SPRITE: `${DIST}sprite/`,
+	};
+
+	var DIST_PATHS_TO_CLEAN = Object.keys(DIST_PATHS)
+		.map(k => DIST_PATHS[k] + '*');
 
 	var svgminOptions = {
 		plugins: [
@@ -37,6 +44,13 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		package: grunt.file.readJSON('package.json'),
+
+		//
+		// Cleans `dist/` dir
+		//
+		'clean': {
+			contents: DIST_PATHS_TO_CLEAN
+		},
 
 		//
 		// SVG optimization step

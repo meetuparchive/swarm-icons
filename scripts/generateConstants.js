@@ -26,7 +26,7 @@ const renderFileContent = iconNames => `/**
 exports.VALID_SHAPES = [${iconNames.map(name => `'${name}'`)}];
 `;
 
-fs.writeFileSync(
+fs.appendFileSync(
 	`${DEST_DIR}shapeConstants.js`,
 	renderFileContent(iconNames)
 );
