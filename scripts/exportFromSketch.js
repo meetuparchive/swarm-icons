@@ -89,11 +89,13 @@ exec(
 		// run export for each distribution
 		config.distributions.forEach(dist => {
 			const {
+				name,
 				destination,
 				platform,
 				format,
 			} = dist.options;
 
+			console.info(`\n${name}:`);
 			console.info(`Queuing export of ${format} files for ${platform}...`);
 
 			// run export on all sketch files with current dist config
