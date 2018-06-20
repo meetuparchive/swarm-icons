@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		DOC_SRC = 'doc/template/',
 		DOC_DEST = 'doc/build/';
 
-	var DIST_PATHS = {
+	var distPaths = {
 		DIST_JS: `${DIST}js/`,
 		DIST_WEB_SVG: `${DIST}svg/`,
 		DIST_ANDROID_SVG: `${DIST}svg/android/`,
@@ -22,8 +22,8 @@ module.exports = function(grunt) {
 		DIST_SPRITE: `${DIST}sprite/`,
 	};
 
-	var DIST_PATHS_TO_CLEAN = Object.keys(DIST_PATHS)
-		.map(k => DIST_PATHS[k] + '*');
+	var DIST_PATHS_TO_CLEAN = Object.keys(distPaths)
+		.map(k => distPaths[k] + '*');
 
 	var svgminOptions = {
 		plugins: [
@@ -61,18 +61,18 @@ module.exports = function(grunt) {
 				options: svgminOptions,
 				files: [{
 					expand: true,
-					cwd: DIST_WEB_SVG,
+					cwd: distPaths.DIST_WEB_SVG,
 					src: ['*.svg'],
-					dest: DIST_WEB_OPTIMIZED
+					dest: distPaths.DIST_WEB_OPTIMIZED
 				}]
 			},
 			android:{
 				options: svgminOptionsAndroid,
 				files: [{
 					expand: true,
-					cwd: DIST_ANDROID_SVG,
+					cwd: distPaths.DIST_ANDROID_SVG,
 					src: ['*.svg'],
-					dest: DIST_ANDROID_OPTIMIZED
+					dest: distPaths.DIST_ANDROID_OPTIMIZED
 				}]
 			}
 		},
@@ -87,8 +87,8 @@ module.exports = function(grunt) {
 			},
 			default: {
 				files: [{
-					src: [`${DIST_WEB_OPTIMIZED}*.svg`],
-					dest: `${DIST_SPRITE}sprite.inc`
+					src: [`${distPaths.DIST_WEB_OPTIMIZED}*.svg`],
+					dest: `${distPaths.DIST_SPRITE}sprite.inc`
 				}]
 			}
 		},
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 					'STYLESHEET_SQ': 'https://meetup.github.io/sassquatch2/bundle/sassquatch.css',
 					'STYLESHEET_FONT': 'https://secure.meetupstatic.com/fonts/graphik.css'
 				},
-				srcDir: DIST_SPRITE // resovle @include directive to built sprite
+				srcDir: distPaths.DIST_SPRITE // resovle @include directive to built sprite
 			},
 			docs: {
 				src: `${DOC_SRC}index.html`,
