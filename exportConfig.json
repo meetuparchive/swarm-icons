@@ -20,7 +20,7 @@
 		{
 			"name": "Android SVG",
 			"options": {
-				"destination": "./dist/android/svg",
+				"destination": "./dist/svg/android",
 				"platform": "android",
 				"format": "svg"
 			}
