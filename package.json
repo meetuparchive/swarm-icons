@@ -1,39 +1,39 @@
 {
- "name": "swarm-icons",
- "version": "1.3.0",
- "description": "Icons for Swarm Design System",
- "directories": {
-  "doc": "docs/build",
-  "dist": "dist"
- },
- "scripts": {
-  "jsConstants": "node scripts/generateConstants.js src/sketch dist/js/",
-  "exportFromSketch": "node scripts/exportFromSketch.js exportConfig.json",
-  "optimize": "grunt minifySvg --platform=web && grunt minifySvg --platform=android",
-  "svgSprite": "grunt svgstore",
-  "test": "echo no tests found",
-  "docs": "grunt preprocess",
-  "build": "yarn run jsConstants && yarn run exportFromSketch && yarn run optimize && yarn run svgSprite",
-  "publish-docs": "yarn run build && grunt gh-pages"
- },
- "repository": {
-  "type": "git",
-  "url": "git://github.com/meetup/swarm-icons.git"
- },
- "devDependencies": {
-  "@alrra/travis-scripts": "^3.0.1",
-  "grunt": "~0.4.5",
-  "grunt-cli": "^1.2.0",
-  "grunt-contrib-clean": "0.6.0",
-  "grunt-gh-pages": "0.10.0",
-  "grunt-preprocess": "5.1.0",
-  "grunt-svgmin": "4.0.0",
-  "grunt-svgstore": "1.0.0"
- },
- "author": "adamd@meetup.com, mikep@meetup.com",
- "license": "MIT",
- "dependencies": {
-  "mustache": "^2.3.0",
-  "xml2js": "^0.4.17"
- }
+  "name": "swarm-icons",
+  "version": "2.3.315-beta",
+  "description": "Icons for Swarm Design System",
+  "directories": {
+    "doc": "docs/build",
+    "dist": "dist"
+  },
+  "scripts": {
+    "jsConstants": "node scripts/generateConstants.js src/sketch dist/js/",
+    "exportFromSketch": "node scripts/exportFromSketch.js exportConfig.json",
+    "optimize": "grunt minifySvg --platform=web && grunt minifySvg --platform=android",
+    "svgSprite": "grunt svgstore",
+    "test": "echo no tests found",
+    "docs": "grunt preprocess",
+    "build": "yarn run jsConstants && yarn run exportFromSketch && yarn run optimize && yarn run svgSprite",
+    "publish-docs": "yarn run build && grunt gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meetup/swarm-icons.git"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-preprocess": "5.1.0",
+    "grunt-svgmin": "4.0.0",
+    "grunt-svgstore": "1.0.0"
+  },
+  "author": "adamd@meetup.com, mikep@meetup.com",
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "^2.3.0",
+    "xml2js": "^0.4.17"
+  }
 }
