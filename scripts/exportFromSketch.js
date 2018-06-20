@@ -94,7 +94,7 @@ exec(
 				format,
 			} = dist.options;
 
-			console.info(`Preparing to export ${format} files for ${platform}...`);
+			console.info(`Queuing export of ${format} files for ${platform}...`);
 
 			// run export on all sketch files with current dist config
 			filesToExport.forEach(file => {
