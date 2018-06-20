@@ -1,0 +1,29 @@
+{
+	"source": ["./src/sketch"],
+	"distributions": [
+		{
+			"name": "raw SVG icons",
+			"options": {
+				"destination": "./dist/svg",
+				"platform": "web",
+				"format": "svg"
+			}
+		},
+		{
+			"name": "PDF icons",
+			"options": {
+				"destination": "./dist/pdf",
+				"platform": "ios",
+				"format": "pdf"
+			}
+		},
+		{
+			"name": "Android SVG",
+			"options": {
+				"destination": "./dist/android/svg",
+				"platform": "android",
+				"format": "svg"
+			}
+		}
+	]
+}
