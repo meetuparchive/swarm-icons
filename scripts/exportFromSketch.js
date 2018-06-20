@@ -3,21 +3,39 @@ const exportArtboards = require('./util/sketchtoolUtils').exportArtboardsFromFil
 const exec = require('child_process').exec;
 
 /**
- * Generates icon distributions from sketch files in `src/sketch`
+ * Exports artboards from sketch files in `src/sketch` in the formats
+ * specified in this projects `exportConfig.json`.
  *
- * <src dir path> - location of sketch files
- * <dest dir path> - location to export artboards
- * <platform> - must be one of: 'ios', 'web'
- * <export format> - must be one of: 'svg', 'pdf'
+ * Config example:
+ * ```
+ * {
+ * 	"name": <name of export set for reference>,
+ * 	"options": {
+ * 		"destination": <destination for exported files>,
+ * 		"platform": <name of platform "page" in sketch file>,
+ * 		"format": <export file format>
+ * 	}
+ * }
+ * ```
  *
  * Usage:
- * `node exportFromSketch <src dir path> <dest dir path> <platform> <export format>'`
+ * `node exportFromSketch <exportConfig.json>`
  */
 
-const SRC_DIR = process.argv[2];
-const DEST_DIR = process.argv[3];
-const PLATFORM = process.argv[4];
-const FORMAT = process.argv[5];
+const config = JSON.parse(fs.readFileSync(process.argv[2]));
+const SRC_DIR = config.source;
+
+/**
+ * @param {String} stdout - produced by git command
+ * @returns {Array} - array of file names
+ */
+const diffToArray = stdout => stdout
+	.split('\n')        // array from stdout lines
+	.filter(f => f)     // filter empty strings
+	.map(f => f         // take only the file name and extension
+		.split(/\//)
+		.pop()
+	);
 
 //
 // Because we `diff` against `master` to select which files to export,
@@ -34,6 +52,7 @@ exec(
 
 			if (localChanges.length) {
 				console.error('\n---------------------------------------------------------------');
+				console.error(`${SRC_DIR} is in a dirty state.`);
 				console.error('You must commit sketch files before exports can build.');
 				console.error(`Please commit your changes in ${SRC_DIR} and try again.`);
 				console.error('---------------------------------------------------------------\n');
@@ -41,37 +60,6 @@ exec(
 			}
 	}
 );
-
-/**
- * Uses sketchtoolUtils to export `fileNames` sketch files
- * to specified format and platform
- *
- * @param {Array} fileNames - list of modified files from SRC_DIR
- */
-const exportFiles = fileNames => {
-	fileNames
-		.forEach(file => {
-			exportArtboards(
-				`${SRC_DIR}${file}`,
-				DEST_DIR,
-				PLATFORM,
-				FORMAT
-			);
-		});
-};
-
-/**
- * @param {String} stdout - produced by git command
- * @returns {Array} - array of file names
- */
-const diffToArray = stdout => stdout
-	.split('\n')        // array from stdout lines
-	.filter(f => f)     // filter empty strings
-	.map(f => f         // take only the file name and extension
-		.split(/\//)
-		.pop()
-	);
-
 
 //
 // only build files that have changed
@@ -88,12 +76,37 @@ exec(
 
 		const filesToExport = diffToArray(result);
 
-		if (filesToExport.length) {
-			console.info(`Exporting ${filesToExport} as ${FORMAT} for ${PLATFORM}`);
-			exportFiles(filesToExport);
-		} else {
+		if (!filesToExport.length) {
 			console.info('\nNo sketch changes found, skipping build\n');
+			return;
 		}
 
+		if (!config.distributions.length) {
+			console.info('\nNo distributions found in config.json\n');
+			return;
+		}
+
+		// run export for each distribution
+		config.distributions.forEach(dist => {
+			const {
+				destination,
+				platform,
+				format,
+			} = dist.options;
+
+			console.info(`\n${dist.name}:`);
+			console.info(`Queuing export of ${format} files for ${platform}...`);
+
+			// run export on all sketch files with current dist config
+			filesToExport.forEach(file => {
+				exportArtboards(
+					`${SRC_DIR}/${file}`,
+					destination,
+					platform,
+					format
+				);
+			});
+
+		});
 	}
 );
