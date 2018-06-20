@@ -132,3 +132,17 @@ task                      | description
 `yarn run build`          | builds all icon distributions to `dist/`; builds docs to `doc/build`
 `yarn run publish-docs`   | builds and publishes documentation to github pages
 
+#### Sketch export configuration
+The script that exports artboards from sketch files, `scripts/exportFromSketch`, reads from a configuration file, `exportConfig.json`.
+The config file for this script follows this format:
+
+```
+{
+	"name": <name of export set for reference>,
+	"options": {
+		"destination": <destination for exported files>,
+		"platform": <name of platform "page" in sketch file>,
+		"format": <export file format>
+	}
+}
+```
