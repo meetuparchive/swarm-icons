@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>creditcard--small</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="creditcard--small" fill="#000000">
+            <path d="M3.6,12.0625 C3.6,11.821 3.8016,11.625 4.05,11.625 L6.75,11.625 C6.9984,11.625 7.2,11.821 7.2,12.0625 C7.2,12.304 6.9984,12.5 6.75,12.5 L4.05,12.5 C3.8016,12.5 3.6,12.304 3.6,12.0625 L3.6,12.0625 Z M0.9,5.5 C0.9,4.05275 2.1114,2.875 3.6,2.875 L14.4,2.875 C15.8886,2.875 17.1,4.05275 17.1,5.5 L0.9,5.5 Z M0.9,8.125 L17.1,8.125 L17.1,6.375 L0.9,6.375 L0.9,8.125 Z M17.1,12.5 C17.1,13.94725 15.8886,15.125 14.4,15.125 L3.6,15.125 C2.1114,15.125 0.9,13.94725 0.9,12.5 L0.9,9 L17.1,9 L17.1,12.5 Z M14.4,2 L3.6,2 C1.6119,2 0,3.567125 0,5.5 L0,9 L0,12.5 C0,14.432875 1.6119,16 3.6,16 L14.4,16 C16.3881,16 18,14.432875 18,12.5 L18,9 L18,5.5 C18,3.567125 16.3881,2 14.4,2 L14.4,2 Z" id="Page-1"></path>
+        </g>
+    </g>
+</svg>
