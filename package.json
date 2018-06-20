@@ -13,7 +13,7 @@
   "svgSprite": "grunt svgstore",
   "test": "echo no tests found",
   "docs": "grunt preprocess",
-  "build": "yarn run jsConstants && yarn run exportFromSketch && run run optimize && yarn run svgSprite",
+  "build": "yarn run jsConstants && yarn run exportFromSketch && yarn run optimize && yarn run svgSprite",
   "publish-docs": "yarn run build && grunt gh-pages"
  },
  "repository": {
