@@ -38,30 +38,6 @@ const diffToArray = stdout => stdout
 	);
 
 //
-// Because we `diff` against `master` to select which files to export,
-// bail out if `src/sketch/` is in dirty state.
-//
-exec(
-	`git status --porcelain ${SRC_DIR}`,
-	(error, result) => {
-			if (error !== null) throw new Error(`exec error: ${error}`);
-
-			const localChanges = result
-				.split('\n')
-				.filter(f => f);
-
-			if (localChanges.length) {
-				console.error('\n---------------------------------------------------------------');
-				console.error(`${SRC_DIR} is in a dirty state.`);
-				console.error('You must commit sketch files before exports can build.');
-				console.error(`Please commit your changes in ${SRC_DIR} and try again.`);
-				console.error('---------------------------------------------------------------\n');
-				process.exit(1);
-			}
-	}
-);
-
-//
 // Export artboards from all sketch files
 // based on dist config from `exportConfig.json`
 //
