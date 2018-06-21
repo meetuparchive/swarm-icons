@@ -62,15 +62,11 @@ exec(
 );
 
 //
-// only build files that have changed
+// Export artboards from all sketch files
+// based on dist config from `exportConfig.json`
 //
-// `--diff-filter=ACMRT`
-// A - added
-// C - copied
-// M - modified
-// T - type (mode) change
 exec(
-	`git diff master --diff-filter=ACMT --name-only ${SRC_DIR}`,
+	`ls ${SRC_DIR}`,
 	(error, result) => {
 		if (error !== null) throw new Error(`exec error: ${error}`);
 
