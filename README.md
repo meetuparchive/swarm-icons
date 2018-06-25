@@ -77,11 +77,10 @@ on platform or variant.
 	- `IconGrid.ai` contains the icon grid
 	- `IconExport.sketch` contains the basic setup for an icon sketch file
 2. Save the sketch file for your icon to `src/sketch/`
-3. Commit any changes to files in `src/sketch`
-4. Run `yarn run build` to export icon distribution from sketch files checked into `src/sketch`
-5. Commit the resulting changes
-6. Submit a pull request
-7. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
+3. Run `yarn run build` to export icon distribution from sketch files checked into `src/sketch`
+4. Commit the resulting changes
+5. Submit a pull request
+6. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
 
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
@@ -96,11 +95,10 @@ on platform or variant.
 
 Use this handy checklist to review pull requests:
 
-- [ ] Was an icon deleted? If so, did we bump the _minor_ version in `Makefile`?
-- [ ] If the _major_ version was updated in `Makefile`, was this `README` updated with release notes?
-- [ ] Do generated file names in `dist/` match the name of the `.sketch` file committed?
+- [ ] Was an icon deleted? If so, did we bump the _major_ version in `Makefile`?
+- [ ] If the _major_ version was updated in `Makefile`, was the `CHANGELOG` updated with release notes?
 - [ ] Does the icon name make sense out of context, or is it ambiguous?
-- [ ] Do the generated distributions fit the criteria listed [here](https://github.com/meetup/swarm-icons/wiki/Reviewing-icon-pull-requests)?
+- [ ] Do the generated SVG exports fit the criteria listed [here](https://github.com/meetup/swarm-icons/wiki/Reviewing-icon-pull-requests)?
 
 #### Releases
 This package uses semver versioning to tag releases, although the patch version
