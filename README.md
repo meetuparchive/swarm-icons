@@ -85,11 +85,10 @@ on platform or variant.
 #### Changing an icon
 0. Check out a new branch. For example, `edit_camera_icon`.
 1. Use the sketch source file in `src/sketch/` to make edits
-2. Commit any changes to files in `src/sketch`
-3. Run `yarn run build` to export icon distributions from sketch files
-4. Commit the resulting changes
-5. Submit a pull request
-6. The PR will publish a `-beta` tag to npm
+2. Run `yarn run build` to export icon distributions from sketch files
+3. Commit the resulting changes
+4. Submit a pull request
+5. The PR will publish a `-beta` tag to npm
 
 #### Reviewing pull requests
 
