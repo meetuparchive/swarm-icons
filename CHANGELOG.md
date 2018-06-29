@@ -1,3 +1,6 @@
+# [3.4]
+
+- **Change** Added `list` and `grid` icons
 
 # [3.3]
 
