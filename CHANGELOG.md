@@ -1,3 +1,7 @@
+# [3.5]
+
+- **Change** Added `audio`, `microphone` and `projector` icons
+
 # [3.4]
 
 - **Change** Added `list` and `grid` icons
