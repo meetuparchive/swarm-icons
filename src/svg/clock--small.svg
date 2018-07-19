@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>clock--small</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="clock--small" fill="#000000">
+            <path d="M18,10 C18,5.589 14.411,2 10,2 C5.589,2 2,5.589 2,10 C2,14.411 5.589,18 10,18 C14.411,18 18,14.411 18,10 M19,10 C19,14.971 14.971,19 10,19 C5.029,19 1,14.971 1,10 C1,5.029 5.029,1 10,1 C14.971,1 19,5.029 19,10 M13.475,11.658 C13.404,11.867 13.209,12 13,12 C12.947,12 12.895,11.992 12.842,11.975 L9.842,10.975 C9.638,10.906 9.5,10.715 9.5,10.5 L9.5,6.5 C9.5,6.224 9.724,6 10,6 C10.276,6 10.5,6.224 10.5,6.5 L10.5,10.14 L13.158,11.025 C13.42,11.113 13.562,11.396 13.475,11.658" id="Page-1"></path>
+        </g>
+    </g>
+</svg>
