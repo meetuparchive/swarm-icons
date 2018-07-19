@@ -35,6 +35,7 @@ If the svg sprite is included at the top of every HTML document in your React pr
 ----------
 
 ## SVG conventions<a name="svg-conventions"></a>
+- Icons should be drawn to conform to [the icon grid](https://github.com/meetup/swarm-icons/blob/master/design_resources/IconGrid.ai)
 - Icons should be filled with #000000 at 100% opacity
 - Icons should be compound paths - these are easier to create in Adobe Illustrator
 - The icon path should not contain a stroke
