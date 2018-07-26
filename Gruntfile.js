@@ -7,7 +7,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	var SRC = 'src/',
-		SRC_SKETCH = `${SRC}sketch/`;
+		SRC_SKETCH = `${SRC}sketch/`,
+		SRC_SVG = `${SRC}svg/`;
 
 	var DIST = 'dist/',
 		DOC_SRC = 'doc/template/',

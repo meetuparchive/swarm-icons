@@ -34,18 +34,23 @@ If the svg sprite is included at the top of every HTML document in your React pr
 
 ----------
 
-## Modifying the icon library
+## SVG conventions<a name="svg-conventions"></a>
+- Icons should be drawn to conform to [the icon grid](https://github.com/meetup/swarm-icons/blob/master/design_resources/IconGrid.ai)
+- Icons should be filled with #000000 at 100% opacity
+- Icons should be compound paths - these are easier to create in Adobe Illustrator
+- The icon path should not contain a stroke
+- If it's not an icon (e.g.: Meetup script logotype), send it directly to the engineer
+
+----------
+
+## Modifying the icon library, for Sketch users
+
+The default build will generate an icon distribution from the files in `src/sketch`, and will generate icon assets for Android, Web, and iOS. If you don't have Sketch and only need to export assets for the Web, follow the [instructions for generating icons from SVG source](#modify-from-svg-src)
 
 #### Sketch file organization
 Each platform (web, iOS, Android) has its own page in an icon sketch file. Each platform page contains
 normal and "small" icon variants. We use this information hierarchy to support different shapes based
 on platform or variant.
-
-#### SVG conventions
-- Icons should be filled with #000000 at 100% opacity
-- Icons should be compound paths - these are easier to create in Adobe Illustrator
-- The icon path should not contain a stroke
-- If it's not an icon (e.g.: Meetup script logotype), send it directly to the engineer
 
 **Sketch file structure**
 ```
@@ -72,8 +77,8 @@ on platform or variant.
 
 
 #### Adding new icons
-0. Check out a new branch. For example, `new_fancy_icon`.
-1. Use Sketch or Adobe Illustrator templates in `design_resources/` to design a new icon
+1. Check out a new branch. For example, `new_fancy_icon`.
+2. Use Sketch or Adobe Illustrator templates in `design_resources/` to design a new icon
 	- `IconGrid.ai` contains the icon grid
 	- `IconExport.sketch` contains the basic setup for an icon sketch file
 2. Save the sketch file for your icon to `src/sketch/`
@@ -89,6 +94,45 @@ on platform or variant.
 3. Commit the resulting changes
 4. Submit a pull request
 5. The PR will publish a `-beta` tag to npm
+
+----------
+
+## Modifying the icon library without Sketch<a name="modify-from-svg-src"></a>
+If you don't have Sketch, you can generate an icon distribution from the files in `src/svg`. Following these instructions **will only update the distribution for Web**.
+
+**SVG folder structure**
+```
+src/svg
+   |
+   |- icon-name.svg (SVG file for default icon)
+   |- icon-name--small.svg (SVG file for small variant)
+   |- icon-name--[otherVariant] (SVG file for other variant)
+```
+
+##### File naming conventions
+- Use lower case letters and hyphens only
+- For icon variants such as "small", use a double dash
+	- for example, `my-icon--small`
+
+
+#### Adding new icons
+1. Check out a new branch. For example, `new_fancy_icon`.
+2. Use the Adobe Illustrator template, found at `design_resources/IconGrid.ai` to design a new icon
+3. Save the SVG files for your icon to `src/svg/`, making sure you followed the [SVG conventions](#svg-conventions)
+4. Run `yarn run build:svgSrc` to export icon distribution from sketch files added to `src/svg`
+5. Commit the resulting changes
+6. Submit a pull request
+7. The PR will publish a `-beta` tag to npm if you need to test the icon in a consumer app
+
+#### Changing an icon
+0. Check out a new branch. For example, `edit_camera_icon`.
+1. Use the SVG source file in `src/SVG/` to make edits
+2. Run `yarn run build:svgSrc` to export icon distributions from SVG files
+3. Commit the resulting changes
+4. Submit a pull request
+5. The PR will publish a `-beta` tag to npm
+
+----------
 
 #### Reviewing pull requests
 
@@ -114,7 +158,7 @@ README.
 ## Development
 
 ### Setup
-**You must have the [`sketchtool cli`](https://www.sketchapp.com/tool/) installed to run `build` commands**
+**You must have Sketch and the [`sketchtool cli`](https://www.sketchapp.com/tool/) installed to run `build` command**.
 
 Once you have the latest version of Sketch installed, run the following to set up `sketchtool`:
 
@@ -122,11 +166,14 @@ Once you have the latest version of Sketch installed, run the following to set u
 ~/Applications/Sketch.app/Contents/Resources/sketchtool/install.sh
 ```
 
+If you don't have Sketch, `build:svgSrc` will work, but will only generate a distribution for Web.
+
 #### yarn commands
 
 task                      | description
 ------------------------- | ------------------------
 `yarn run build`          | builds all icon distributions to `dist/`; builds docs to `doc/build`
+`yarn run build:svgSrc`   | builds Web icon distributions to `dist/`; builds docs to `doc/build`
 `yarn run publish-docs`   | builds and publishes documentation to github pages
 
 #### Sketch export configuration
