@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>info--small</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="info--small" fill="#000000">
+            <path d="M8.375,10.625 C8.375,10.832 8.207,11 8,11 C7.793,11 7.625,10.832 7.625,10.625 C7.625,10.418 7.793,10.25 8,10.25 C8.207,10.25 8.375,10.418 8.375,10.625 M8.375,5.375 L8.375,9.125 C8.375,9.332 8.207,9.5 8,9.5 C7.793,9.5 7.625,9.332 7.625,9.125 L7.625,5.375 C7.625,5.168 7.793,5 8,5 C8.207,5 8.375,5.168 8.375,5.375 M8,13.25 C5.10575,13.25 2.75,10.895 2.75,8 C2.75,5.105 5.10575,2.75 8,2.75 C10.89425,2.75 13.25,5.105 13.25,8 C13.25,10.895 10.89425,13.25 8,13.25 M8,2 C4.6865,2 2,4.6865 2,8 C2,11.3135 4.6865,14 8,14 C11.3135,14 14,11.3135 14,8 C14,4.6865 11.3135,2 8,2" id="Page-1" transform="translate(8.000000, 8.000000) scale(1, -1) translate(-8.000000, -8.000000) "></path>
+        </g>
+    </g>
+</svg>
