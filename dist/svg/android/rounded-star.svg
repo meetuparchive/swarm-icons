@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <title>rounded-star</title>
+    <desc>Created with (null).</desc>
+    <defs></defs>
+    <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="rounded-star" fill="#000000" fill-rule="nonzero">
+            <path d="M13.9999707,23.7064792 L6.66057366,27.7468286 C5.5675725,28.3485275 4.84456702,27.840873 5.04562021,26.6134119 L6.46118569,17.9711644 L0.501629019,11.8883284 C-0.370554711,10.9981026 -0.0762815104,10.1240767 1.15819645,9.93624486 L9.34074532,8.69123009 L13.0391671,0.844328868 C13.5698043,-0.281518178 14.430208,-0.281367731 14.9607743,0.844328868 L18.6591961,8.69123009 L26.841745,9.93624486 C28.0765408,10.1241251 28.3704286,10.9981716 27.4983124,11.8883284 L21.5387557,17.9711644 L22.9543212,26.6134119 C23.1554082,27.8410795 22.4323107,28.3484955 21.3393677,27.7468286 L13.9999707,23.7064792 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

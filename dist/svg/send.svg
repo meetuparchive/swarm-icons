@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
     <title>send</title>
-    <desc>Created with sketchtool.</desc>
+    <desc>Created with (null).</desc>
     <defs></defs>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="send" fill-rule="nonzero" fill="#000000">
+        <g id="send" fill="#000000" fill-rule="nonzero">
             <path d="M2.00208116,13.4750573 L2.07161347,20.5794148 C1.94885164,20.9974325 2.07691657,21.4508994 2.39799736,21.7351121 C2.71907815,22.0193248 3.17242916,22.0805128 3.5533993,21.8910547 L21.4284814,12.9461009 C21.7781687,12.7698652 22,12.4030595 22,12.0010751 C22,11.5990908 21.7781687,11.232285 21.4284814,11.0560493 L3.5533993,2.10894531 C3.17242916,1.91948717 2.71907815,1.98067515 2.39799736,2.26488786 C2.07691657,2.54910057 1.94885164,3.00256748 2.07161347,3.42058517 L2,10.5163418 L12.3650302,11.3312787 C12.6940773,11.3648992 12.9448211,11.6508483 12.9448211,11.9924742 C12.9448211,12.3341001 12.6940773,12.6200492 12.3650302,12.6536697 L2.00208116,13.4750573 Z" id="Shape"></path>
         </g>
     </g>
