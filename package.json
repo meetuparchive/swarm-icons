@@ -1,42 +1,41 @@
 {
-    "name": "swarm-icons",
-    "version": "1.3.0",
-    "description": "Icons for Swarm Design System",
-    "directories": {
-     "doc": "docs/build",
-     "dist": "dist"
-    },
-    "scripts": {
-     "clean": "yarn grunt clean",
-     "cloneSvgSrc": "cp -a src/svg dist/",
-     "jsConstants": "node scripts/generateConstants.js src/sketch dist/js/ .sketch",
-     "jsConstants:svgSrc": "node scripts/generateConstants.js src/svg dist/js/ .svg",
-     "exportFromSketch": "node scripts/exportFromSketch.js exportConfig.json",
-     "optimize": "yarn grunt minifySvg --platform=web && yarn grunt minifySvg --platform=android",
-     "svgSprite": "yarn grunt svgstore",
-     "test": "echo no tests found",
-     "docs": "yarn grunt preprocess",
-     "build": "yarn run clean && yarn run jsConstants && yarn run exportFromSketch && yarn run optimize && yarn run svgSprite",
-     "build:svgSrc": "yarn run clean && yarn run jsConstants:svgSrc && yarn run cloneSvgSrc && yarn run optimize && yarn run svgSprite",
-     "publish-docs": "yarn run build && grunt gh-pages"
-    },
-    "repository": {
-     "type": "git",
-     "url": "git://github.com/meetup/swarm-icons.git"
-    },
-    "devDependencies": {
-     "@alrra/travis-scripts": "^3.0.1",
-     "grunt": "~0.4.5",
-     "grunt-cli": "^1.2.0",
-     "grunt-contrib-clean": "^1.1.0",
-     "grunt-gh-pages": "0.10.0",
-     "grunt-preprocess": "5.1.0",
-     "grunt-svgmin": "4.0.0",
-     "grunt-svgstore": "1.0.0",
-     "mustache": "^2.3.0",
-     "xml2js": "^0.4.17"
-    },
-    "author": "adamd@meetup.com, mikep@meetup.com",
-    "license": "MIT"
-   }
-   
+  "name": "swarm-icons",
+  "version": "3.8.349",
+  "description": "Icons for Swarm Design System",
+  "directories": {
+    "doc": "docs/build",
+    "dist": "dist"
+  },
+  "scripts": {
+    "clean": "yarn grunt clean",
+    "cloneSvgSrc": "cp -a src/svg dist/",
+    "jsConstants": "node scripts/generateConstants.js src/sketch dist/js/ .sketch",
+    "jsConstants:svgSrc": "node scripts/generateConstants.js src/svg dist/js/ .svg",
+    "exportFromSketch": "node scripts/exportFromSketch.js exportConfig.json",
+    "optimize": "yarn grunt minifySvg --platform=web && yarn grunt minifySvg --platform=android",
+    "svgSprite": "yarn grunt svgstore",
+    "test": "echo no tests found",
+    "docs": "yarn grunt preprocess",
+    "build": "yarn run clean && yarn run jsConstants && yarn run exportFromSketch && yarn run optimize && yarn run svgSprite",
+    "build:svgSrc": "yarn run clean && yarn run jsConstants:svgSrc && yarn run cloneSvgSrc && yarn run optimize && yarn run svgSprite",
+    "publish-docs": "yarn run build && grunt gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meetup/swarm-icons.git"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-gh-pages": "0.10.0",
+    "grunt-preprocess": "5.1.0",
+    "grunt-svgmin": "4.0.0",
+    "grunt-svgstore": "1.0.0",
+    "mustache": "^2.3.0",
+    "xml2js": "^0.4.17"
+  },
+  "author": "adamd@meetup.com, mikep@meetup.com",
+  "license": "MIT"
+}
