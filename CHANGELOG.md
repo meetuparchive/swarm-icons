@@ -1,3 +1,7 @@
+# [3.7]
+
+- **Change** Added new star icon with more rounded edges (`star-rounded`)
+
 # [3.6]
 
 - **Change** Added `yarn build:svgSrc` script. This lets us generate an icon distribution for the Web from `src/svg` without the user needing to have Sketch installed. This should also let us run a build for Web icon distributions in Travis.
