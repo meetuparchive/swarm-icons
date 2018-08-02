@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
     <title>send--small</title>
-    <desc>Created with sketchtool.</desc>
+    <desc>Created with (null).</desc>
     <defs></defs>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="send--small" fill-rule="nonzero" fill="#000000">
+        <g id="send--small" fill="#000000" fill-rule="nonzero">
             <path d="M1.00145681,9.0325401 L1.05012943,14.0055904 C0.964196149,14.2982028 1.0538416,14.6156296 1.27859815,14.8145785 C1.50335471,15.0135274 1.82070041,15.056359 2.08737951,14.9237383 L14.599937,8.66227062 C14.8447181,8.53890564 15,8.28214162 15,8.00075258 C15,7.71936354 14.8447181,7.46259952 14.599937,7.33923454 L2.08737951,1.07626171 C1.82070041,0.943641018 1.50335471,0.986472608 1.27859815,1.1854215 C1.0538416,1.3843704 0.964196149,1.70179724 1.05012943,1.99440962 L1,6.96143926 L8.25552113,7.53189509 C8.48585414,7.55542945 8.66137479,7.75559379 8.66137479,7.99473194 C8.66137479,8.23387009 8.48585414,8.43403442 8.25552113,8.45756879 L1.00145681,9.0325401 Z" id="Shape"></path>
         </g>
     </g>

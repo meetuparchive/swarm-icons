@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
     <title>external-yahoo</title>
-    <desc>Created with sketchtool.</desc>
+    <desc>Created with (null).</desc>
     <defs></defs>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="external-yahoo" fill-rule="nonzero" fill="#000000">
+        <g id="external-yahoo" fill="#000000" fill-rule="nonzero">
             <path d="M19.8333333,2 L19.8333333,2 L19.8333333,2 C18.8509732,2.23121387 18.0419708,2.23121387 17.1751825,2 C16.4239659,3.38728324 13.6502433,7.95375723 11.9166667,10.8439306 C10.1253041,7.89595376 7.98722628,4.48554913 6.65815085,2 C5.56021898,2.23121387 5.09793187,2.23121387 4,2 C6.13807786,5.23699422 9.66301703,11.4797688 10.8187348,13.5028902 L10.6453771,22 C10.6453771,22 11.3965937,21.8843931 11.9166667,21.8843931 C12.4945255,21.8843931 13.1879562,22 13.1879562,22 L13.0145985,13.5028902 C15.2104623,9.6300578 18.8509732,3.32947977 19.8333333,2 Z" id="Shape"></path>
         </g>
     </g>
