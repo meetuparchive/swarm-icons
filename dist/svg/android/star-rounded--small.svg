@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
-    <title>rounded-star--small</title>
+    <title>star-rounded--small</title>
     <desc>Created with (null).</desc>
     <defs></defs>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="rounded-star--small" fill="#000000" fill-rule="nonzero">
+        <g id="star-rounded--small" fill="#000000" fill-rule="nonzero">
             <path d="M9.99997906,16.9331994 L4.75755261,19.8191633 C3.9768375,20.2489482 3.46040501,19.8863379 3.60401443,19.00958 L4.61513263,12.836546 L0.358306442,8.49166311 C-0.264681936,7.8557876 -0.0544867931,7.23148338 0.827283182,7.09731776 L6.67196095,6.20802149 L9.31369081,0.603092049 C9.69271737,-0.201084413 10.3072914,-0.200976951 10.6862673,0.603092049 L13.3279972,6.20802149 L19.172675,7.09731776 C20.054672,7.23151791 20.2645918,7.85583685 19.6416517,8.49166311 L15.3848255,12.836546 L16.3959437,19.00958 C16.5395773,19.8864854 16.0230791,20.2489253 15.2424055,19.8191633 L9.99997906,16.9331994 Z" id="Shape"></path>
         </g>
     </g>
