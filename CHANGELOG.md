@@ -1,3 +1,6 @@
+# [3.8]
+- **Change** Updated `star-rounded` icon to fix stroke cut
+
 # [3.7]
 
 - **Change** Added new star icon with more rounded edges (`star-rounded`)
