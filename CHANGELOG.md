@@ -1,6 +1,6 @@
 # [3.7]
 
-- **Change** Added new star icon with more rounded edges (`roudned-star`)
+- **Change** Added new star icon with more rounded edges (`star-rounded`)
 
 # [3.6]
 
