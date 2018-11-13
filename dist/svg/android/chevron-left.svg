@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>chevron-left</title>
-    <desc>Created with (null).</desc>
-    <defs></defs>
+    <desc>Created with sketchtool.</desc>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="chevron-left" fill="#000000">
             <path d="M6.23225309,21.7382736 C5.90911023,21.4023637 5.92453881,20.8747434 6.26996738,20.558838 L15.8922531,11.7501622 L6.26996738,3.44089843 C5.92539595,3.12499304 5.90911023,2.5973727 6.23311023,2.26146276 C6.55882452,1.92638633 7.10053881,1.91221643 7.44511023,2.22562125 L17.7308245,11.1433572 C17.9022531,11.3008931 17.9999674,11.5209433 17.9999674,11.7501622 C17.9999674,11.9802147 17.9022531,12.1994314 17.7308245,12.3578008 L7.44511023,21.7741151 C7.27882452,21.9249829 7.06796738,22 6.85711023,22 C6.62911023,22 6.40196738,21.91248 6.23225309,21.7382736 Z" id="Fill-4" transform="translate(11.999984, 12.000000) scale(-1, 1) translate(-11.999984, -12.000000) "></path>
