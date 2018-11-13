@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>block</title>
-    <desc>Created with (null).</desc>
-    <defs></defs>
+    <desc>Created with sketchtool.</desc>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="block" fill="#000000">
             <path d="M12,20.5714286 C9.94542857,20.5714286 8.05714286,19.8428571 6.57942857,18.6325714 L18.6325714,6.57942857 C19.8428571,8.05714286 20.5714286,9.94542857 20.5714286,12 C20.5714286,16.7262857 16.7262857,20.5714286 12,20.5714286 M12,3.42857143 C14.0545714,3.42857143 15.9428571,4.15714286 17.4205714,5.36742857 L5.36742857,17.4205714 C4.15714286,15.9428571 3.42857143,14.0545714 3.42857143,12 C3.42857143,7.27371429 7.27371429,3.42857143 12,3.42857143 M12,1.71428571 C6.32828571,1.71428571 1.71428571,6.32828571 1.71428571,12 C1.71428571,17.6717143 6.32828571,22.2857143 12,22.2857143 C17.6717143,22.2857143 22.2857143,17.6717143 22.2857143,12 C22.2857143,6.32828571 17.6717143,1.71428571 12,1.71428571" id="Page-1"></path>

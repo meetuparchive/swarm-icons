@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>check-circle</title>
-    <desc>Created with (null).</desc>
-    <defs></defs>
+    <desc>Created with sketchtool.</desc>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="check-circle" fill="#000000">
             <path d="M18.479,8.816 L10.465,16.83 C10.282,17.013 10.034,17.093 9.795,17.068 C9.558,17.093 9.312,17.015 9.131,16.834 L5.338,13.042 C5.02,12.723 5.018,12.208 5.34,11.886 C5.661,11.566 6.178,11.566 6.497,11.884 L9.795,15.185 L17.322,7.659 C17.643,7.338 18.159,7.335 18.481,7.656 C18.801,7.976 18.8,8.495 18.479,8.816 M12,2 C6.47666667,2 2,6.47666667 2,12 C2,17.5225 6.47666667,22 12,22 C17.5225,22 22,17.5225 22,12 C22,6.47666667 17.5225,2 12,2" id="Fill-1"></path>

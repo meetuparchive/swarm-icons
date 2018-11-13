@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>heart</title>
-    <desc>Created with (null).</desc>
-    <defs></defs>
+    <desc>Created with sketchtool.</desc>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="heart" fill="#000000">
             <path d="M17.2648054,3 C15.6647398,3 14.0519819,3.66845683 12.8546826,4.91737112 L12.0000733,5.809211 L11.1454639,4.91737112 C9.94816462,3.66845683 8.33540674,3 6.73534107,3 C5.45427316,3 4.18082059,3.42815083 3.13498179,4.32929834 C0.437462311,6.6536666 0.296155613,10.8294064 2.71021555,13.3483887 L9.66639737,20.6066453 C10.3111621,21.2793329 11.1556177,21.6152536 12.0000733,21.6152536 C12.8445289,21.6152536 13.6889845,21.2793329 14.3337491,20.6066453 L21.289931,13.3483887 C23.7039909,10.8294064 23.5618381,6.6536666 20.8643186,4.32929834 C19.8193259,3.42815083 18.5458734,3 17.2648054,3" id="Fill-1"></path>

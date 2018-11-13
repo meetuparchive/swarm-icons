@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: (null) (null) ((null)) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>location-pin-filled--small</title>
-    <desc>Created with (null).</desc>
-    <defs></defs>
+    <desc>Created with sketchtool.</desc>
     <g id="Android" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="location-pin-filled--small" fill="#000000">
             <path d="M8.22222222,5.2056 C7.36433333,5.2056 6.66666667,5.9232 6.66666667,6.8056 C6.66666667,7.688 7.36433333,8.4056 8.22222222,8.4056 C9.08011111,8.4056 9.77777778,7.688 9.77777778,6.8056 C9.77777778,5.9232 9.08011111,5.2056 8.22222222,5.2056 M8.22222222,0 C5.16322222,0 2,2.5456 2,6.8048 C2,8.628 3.13477778,11.2112 5.37166667,14.4824 C6.032,15.4472 7.07111111,16 8.22222222,16 C9.37333333,16 10.4124444,15.4472 11.0727778,14.4824 C13.3096667,11.2112 14.4444444,8.628 14.4444444,6.8048 C14.4444444,2.5456 11.2812222,0 8.22222222,0" id="Fill-1"></path>
