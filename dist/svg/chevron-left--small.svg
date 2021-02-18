@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
     <title>chevron-left--small</title>
     <desc>Created with sketchtool.</desc>
+    <defs></defs>
     <g id="Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="chevron-left--small" fill="#000000">
             <path d="M4.5986618,14.8817663 C4.46426105,14.7269735 4.46776107,14.4811718 4.60636184,14.3318239 L10.6473953,7.8204131 L4.60636184,1.66773209 C4.46776107,1.51838424 4.46426105,1.27180471 4.59796179,1.11778974 C4.73376255,0.963774764 4.95496377,0.96066335 5.09286453,1.10923335 L11.3935994,7.54116373 C11.4614998,7.6150598 11.5,7.71618075 11.5,7.8204131 C11.5,7.92620116 11.4614998,8.02654425 11.3935994,8.10044033 L5.09356454,14.8903227 C5.02566416,14.9634409 4.93746367,15 4.84996319,15 C4.75826268,15 4.66726218,14.9603295 4.5986618,14.8817663 Z" id="Fill-1" transform="translate(8.000000, 8.000000) scale(-1, 1) translate(-8.000000, -8.000000) "></path>
